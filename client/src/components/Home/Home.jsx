@@ -249,7 +249,7 @@ const Home = () => {
                         <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div className="relative h-48 overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&q=80&w=1000"
+                                    src=""
                                     alt="Institutions"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
@@ -531,7 +531,7 @@ const Home = () => {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-[#E71108] text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center space-x-2"
+                                    className="w-full bg-[#E71108] text-white py-3 px-6 rounded-lg hover:bg-[#ff130a] transition-colors duration-300 flex items-center justify-center space-x-2"
                                 >
                                     <Send className="w-5 h-5" />
                                     <span>Send Message</span>

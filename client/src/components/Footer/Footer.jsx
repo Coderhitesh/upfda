@@ -1,54 +1,65 @@
-import React from 'react'
-import { Home, Users, Building2, Lightbulb, UserPlus, Calendar, BookOpen, Mail, Newspaper, Facebook, Twitter, Instagram, Linkedin, ArrowUpRight } from 'lucide-react'
-import Image from 'next/image'
+import React from 'react';
+import { 
+    Phone, 
+    Mail, 
+    MapPin, 
+    Clock, 
+    Facebook, 
+    Twitter, 
+    Instagram, 
+    Linkedin,
+    ChevronRight
+} from 'lucide-react';
+import Image from 'next/image';
 
 const Footer = () => {
-    const links = [
-        { name: 'Home', icon: <Home size={18} /> },
-        { name: 'About Us', icon: <Users size={18} /> },
-        { name: 'Organization & Leadership', icon: <Building2 size={18} /> },
-        { name: 'Initiatives', icon: <Lightbulb size={18} /> },
-        { name: 'Membership', icon: <UserPlus size={18} /> },
-        { name: 'Activities and Events', icon: <Calendar size={18} /> },
-        { name: 'Resources', icon: <BookOpen size={18} /> },
-        { name: 'Contact Us', icon: <Mail size={18} /> },
-        { name: 'News Room', icon: <Newspaper size={18} /> }
-    ]
+    const quickLinks = [
+        { name: 'Home' },
+        { name: 'About Us' },
+        { name: 'Organization & Leadership' },
+        { name: 'Initiatives' },
+        { name: 'Membership' }
+    ];
+
+    const otherLinks = [
+        { name: 'Activities and Events' },
+        { name: 'Resources' },
+        { name: 'Contact Us' },
+        { name: 'News Room' },
+        { name: 'Privacy Policy' }
+    ];
 
     const socialLinks = [
-        { icon: <Facebook size={20} />, label: 'Facebook' },
-        { icon: <Twitter size={20} />, label: 'Twitter' },
-        { icon: <Instagram size={20} />, label: 'Instagram' },
-        { icon: <Linkedin size={20} />, label: 'LinkedIn' }
-    ]
+        { icon: <Facebook size={20} />, label: 'Facebook', href: '#' },
+        { icon: <Twitter size={20} />, label: 'Twitter', href: '#' },
+        { icon: <Instagram size={20} />, label: 'Instagram', href: '#' },
+        { icon: <Linkedin size={20} />, label: 'LinkedIn', href: '#' }
+    ];
 
     return (
-        <footer className="relative bg-gradient-to-br from-indigo-950 via-purple-900 to-indigo-950">
-            {/* Decorative Elements */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500 rounded-full opacity-10 blur-3xl"></div>
-                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500 rounded-full opacity-10 blur-3xl"></div>
-            </div>
-
-            <div className="relative max-w-7xl mx-auto px-4 py-16">
-                {/* Main Content */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-                    {/* Brand Section */}
+        <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-300">
+            <div className="max-w-7xl mx-auto px-4 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    {/* Company Info Column */}
                     <div className="space-y-6">
-                        {/* <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
-                            Your Logo
-                        </h2> */}
-                        <Image src="/logo-bg.png" alt="Your Logo" width={100} height={100} />
-                        <p className="text-purple-100/80 leading-relaxed">
-                            Empowering communities through innovation and collaboration. Building a better future together.
+                        <Image 
+                            src="/logo-bg.png" 
+                            alt="UPFDA Logo" 
+                            width={120} 
+                            height={120} 
+                            className="mb-4"
+                        />
+                        <p className="text-sm leading-relaxed text-gray-400">
+                            UPFDA is dedicated to promoting excellence in pest management 
+                            and fostering collaboration among industry professionals to 
+                            create safer, healthier environments.
                         </p>
-                        {/* Social Links */}
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-3 pt-4">
                             {socialLinks.map((social, index) => (
                                 <a
                                     key={index}
-                                    href="#"
-                                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-300 text-purple-100 hover:text-white hover:scale-110"
+                                    href={social.href}
+                                    className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 transition-all duration-300 text-gray-400 hover:text-white"
                                     aria-label={social.label}
                                 >
                                     {social.icon}
@@ -57,41 +68,94 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Navigation Links */}
-                    <div className="col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {links.map((link, index) => (
-                            <a
-                                key={index}
-                                href="#"
-                                className="group flex items-center space-x-3 text-purple-100/80 hover:text-white"
-                            >
-                                <span className="p-2 rounded-lg bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                                    {link.icon}
-                                </span>
-                                <span className="font-medium">{link.name}</span>
-                                <ArrowUpRight
-                                    size={14}
-                                    className="opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300"
-                                />
-                            </a>
-                        ))}
+                    {/* Quick Links Column */}
+                    <div>
+                        <h3 className="text-lg font-semibold text-white mb-6">Quick Links</h3>
+                        <ul className="space-y-3">
+                            {quickLinks.map((link, index) => (
+                                <li key={index}>
+                                    <a 
+                                        href="#" 
+                                        className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300"
+                                    >
+                                        <ChevronRight className="h-4 w-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Other Links Column */}
+                    <div>
+                        <h3 className="text-lg font-semibold text-white mb-6">Other Links</h3>
+                        <ul className="space-y-3">
+                            {otherLinks.map((link, index) => (
+                                <li key={index}>
+                                    <a 
+                                        href="#" 
+                                        className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300"
+                                    >
+                                        <ChevronRight className="h-4 w-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Info Column */}
+                    <div>
+                        <h3 className="text-lg font-semibold text-white mb-6">Contact Info</h3>
+                        <div className="space-y-4">
+                            <div className="flex items-start space-x-3">
+                                <MapPin className="w-5 h-5 text-gray-400 mt-1" />
+                                <p className="text-sm text-gray-400">
+                                    123 Business Avenue, Mumbai, Maharashtra 400001, India
+                                </p>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <Phone className="w-5 h-5 text-gray-400" />
+                                <a 
+                                    href="tel:+919821480775" 
+                                    className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
+                                >
+                                    +91 9821480775
+                                </a>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <Mail className="w-5 h-5 text-gray-400" />
+                                <a 
+                                    href="mailto:media@upfda.in" 
+                                    className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
+                                >
+                                    media@upfda.in
+                                </a>
+                            </div>
+                            <div className="flex items-center space-x-3">
+                                <Clock className="w-5 h-5 text-gray-400" />
+                                <p className="text-sm text-gray-400">
+                                    Mon - Fri: 9:00 AM - 6:00 PM
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="mt-16 pt-8 border-t border-white/10">
+                <div className="mt-12 pt-8 border-t border-gray-800">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                        <div className="text-sm text-purple-100/60">
+                        <div className="text-sm text-gray-400">
                             © {new Date().getFullYear()} UPFDA. All rights reserved.
                         </div>
-                        <div className="flex flex-wrap justify-center gap-6">
-                            <a href="#" className="text-sm text-purple-100/60 hover:text-white transition-colors duration-300">
+                        <div className="flex flex-wrap justify-center gap-8">
+                            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">
                                 Privacy Policy
                             </a>
-                            <a href="#" className="text-sm text-purple-100/60 hover:text-white transition-colors duration-300">
+                            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">
                                 Terms of Service
                             </a>
-                            <a href="#" className="text-sm text-purple-100/60 hover:text-white transition-colors duration-300">
+                            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">
                                 Cookie Policy
                             </a>
                         </div>
@@ -99,7 +163,7 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

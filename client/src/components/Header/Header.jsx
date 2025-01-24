@@ -37,12 +37,12 @@ const Header = () => {
             <div className="w-full bg-gradient-to-r from-red-400 to-red-300 py-2 px-4 md:px-20">
                 <div className="max-w-[1500px] mx-auto flex justify-between items-center">
                     <div className="flex gap-4  md:flex-row items-center justify-center md:justify-start w-full md:items-center">
-                        <a href="tel:+919821480775" className="flex items-center space-x-2 text-gray-800 hover:text-gray-900 font-medium transition-colors duration-200">
+                        <a href="tel:+919821480775" className="flex items-center space-x-2 text-white font-medium transition-colors duration-200">
                             <Phone className="h-4 w-4" />
                             <span>+91 9821480775</span>
                         </a>
-                        <span className="hidden md:block text-gray-600">|</span>
-                        <a href="mailto:media@upfda.in" className="flex items-center space-x-2 text-gray-800 hover:text-gray-900 font-medium transition-colors duration-200">
+                        <span className="hidden md:block text-white">|</span>
+                        <a href="mailto:media@upfda.in" className="flex items-center space-x-2 text-white font-medium transition-colors duration-200">
                             <Mail className="h-4 w-4" />
                             <span>media@upfda.in</span>
                         </a>

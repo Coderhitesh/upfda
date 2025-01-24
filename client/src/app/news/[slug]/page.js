@@ -13,6 +13,7 @@ import {
   ArrowLeft
 } from 'lucide-react';
 import { useParams } from 'next/navigation';
+import Image from 'next/image';
 
 const SingleBlog = () => {
   const { slug } = useParams();
@@ -47,10 +48,11 @@ const SingleBlog = () => {
       {/* Hero Section */}
       <div className="relative h-[60vh] w-full overflow-hidden">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <img 
+        <Image 
           src={blogPost.image} 
           alt={blogPost.title}
-          className="w-full h-full object-cover"
+          layout="fill" // This will make the image fill the container
+          objectFit="cover" // Keeps the aspect ratio intact
         />
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <div className="max-w-4xl mx-auto px-4 text-center text-white">
@@ -79,10 +81,12 @@ const SingleBlog = () => {
       <div className="max-w-4xl mx-auto px-4 py-12">
         {/* Author Info */}
         <div className="flex items-center mb-8 p-6 bg-white rounded-xl shadow-lg">
-          <img 
+        <Image 
             src={blogPost.authorImage} 
             alt={blogPost.author}
-            className="w-16 h-16 rounded-full object-cover mr-4"
+            width={64} // Specify width
+            height={64} // Specify height
+            className="rounded-full object-cover mr-4"
           />
           <div>
             <h3 className="font-semibold text-gray-900">{blogPost.author}</h3>
