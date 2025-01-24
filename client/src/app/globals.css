@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Custom styles for Slick slider */
+.testimonials-slider .slick-dots li button:before {
+  color: #E71108;
+  opacity: 0.25;
+  font-size: 10px;
+}
+
+.testimonials-slider .slick-dots li.slick-active button:before {
+  color: #E71108;
+  opacity: 1;
+}
+
+.testimonials-slider .slick-prev,
+.testimonials-slider .slick-next {
+  width: 40px;
+  height: 40px;
+  background-color: #E71108;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.testimonials-slider .slick-prev:hover,
+.testimonials-slider .slick-next:hover {
+  background-color: #E71108;
+}
+
+.testimonials-slider .slick-prev {
+  left: -50px;
+}
+
+.testimonials-slider .slick-next {
+  right: -50px;
+}
+
+.testimonials-slider .slick-prev:before,
+.testimonials-slider .slick-next:before {
+  font-size: 24px;
+  line-height: 1;
+  opacity: 1;
+}
+
+.hero_banner_height {
+  height: 600px;
+}
+
+@media (max-width: 1353px) {
+  .hero_banner_height {
+    height: 353px;
+  }
+}
+
+@media (max-width:840px) {
+  .hero_banner_height {
+    height: 222px;
+  }
+}
+
+@media (max-width:540px) {
+  .hero_banner_height {
+    height: 145px;
+  }
+}
+
+@media (max-width:360px) {
+  .hero_banner_height {
+    height: 120px;
+  }
+}
