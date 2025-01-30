@@ -129,7 +129,7 @@ const Membership = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="bg-blue-50 rounded-xl p-8 inline-block">
             <Building className="h-12 w-12 text-[#E71108] mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
@@ -140,7 +140,7 @@ const Membership = () => {
               Apply for Membership <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

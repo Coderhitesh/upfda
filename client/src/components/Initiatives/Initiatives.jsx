@@ -126,7 +126,7 @@ const Initiatives = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="inline-flex items-center justify-center mb-6">
             <BookOpen className="h-6 w-6 text-[#E71108] mr-3" />
             <h2 className="text-2xl font-bold text-gray-900">Get Involved</h2>
@@ -137,7 +137,7 @@ const Initiatives = () => {
           <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#E71108] hover:bg-[#fd4842] transition-colors">
             Participate in Our Initiatives
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

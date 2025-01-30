@@ -406,8 +406,7 @@ const Home = () => {
                                     <div className="ml-4">
                                         <h4 className="text-lg font-medium text-gray-900">Our Location</h4>
                                         <p className="mt-1 text-gray-600">
-                                            123 Distribution Hub, Sector 18<br />
-                                            Lucknow, Uttar Pradesh 226001
+                                        034C, Tugalpur  Phase III, Beside Gurdwara, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh - 201306
                                         </p>
                                     </div>
                                 </div>
@@ -420,8 +419,7 @@ const Home = () => {
                                     </div>
                                     <div className="ml-4">
                                         <h4 className="text-lg font-medium text-gray-900">Phone Number</h4>
-                                        <p className="mt-1 text-gray-600">+91 522 2345 6789</p>
-                                        <p className="text-gray-600">+91 522 9876 5432</p>
+                                        <p className="mt-1 text-gray-600">+91 9821480775</p>
                                     </div>
                                 </div>
 
@@ -433,8 +431,7 @@ const Home = () => {
                                     </div>
                                     <div className="ml-4">
                                         <h4 className="text-lg font-medium text-gray-900">Email Address</h4>
-                                        <p className="mt-1 text-gray-600">info@upfda.org</p>
-                                        <p className="text-gray-600">support@upfda.org</p>
+                                        <p className="mt-1 text-gray-600">media@upfda.in</p>
                                     </div>
                                 </div>
 

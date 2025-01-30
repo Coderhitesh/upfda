@@ -111,7 +111,7 @@ const Footer = () => {
                             <div className="flex items-start space-x-3">
                                 <MapPin className="w-5 h-5 text-gray-400 mt-1" />
                                 <p className="text-sm text-gray-400">
-                                    123 Business Avenue, Mumbai, Maharashtra 400001, India
+                                034C, Tugalpur Phase III, Beside Gurdwara, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh - 201306
                                 </p>
                             </div>
                             <div className="flex items-center space-x-3">
@@ -148,7 +148,7 @@ const Footer = () => {
                         <div className="text-sm text-gray-400">
                             © {new Date().getFullYear()} UPFDA. All rights reserved.
                         </div>
-                        <div className="flex flex-wrap justify-center gap-8">
+                        {/* <div className="flex flex-wrap justify-center gap-8">
                             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">
                                 Privacy Policy
                             </a>
@@ -158,7 +158,7 @@ const Footer = () => {
                             <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-300">
                                 Cookie Policy
                             </a>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

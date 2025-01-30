@@ -176,14 +176,14 @@ const Leadership = () => {
                 </div>
 
                 {/* Call to Action */}
-                <div className="text-center">
+                {/* <div className="text-center">
                     <p className="text-lg text-gray-600 mb-6">
                         Connect with our leadership team to learn more about UPFDA's initiatives and how you can get involved.
                     </p>
                     <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#E71108] hover:bg-[#ff2a23] transition-colors">
                         Contact Leadership Team
                     </button>
-                </div>
+                </div> */}
             </div>
         </div>
     );
