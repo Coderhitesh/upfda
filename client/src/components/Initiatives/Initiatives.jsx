@@ -41,45 +41,45 @@ const Initiatives = () => {
       icon: Scale,
       title: "Advocacy for Fair Trade Practices",
       description: "UPFDA actively engages with policymakers, manufacturers, and trade organizations to secure equitable treatment for distributors, ensuring sustainable margins, transparent practices, and a healthy business environment.",
-      items: [
-        "Regular dialogue with manufacturers on margin structures",
-        "Representation in industry forums and government committees",
-        "Campaign for transparent trade policies",
-        "Protection of distributor interests in policy decisions"
-      ]
+      // items: [
+      //   "Regular dialogue with manufacturers on margin structures",
+      //   "Representation in industry forums and government committees",
+      //   "Campaign for transparent trade policies",
+      //   "Protection of distributor interests in policy decisions"
+      // ]
     },
     {
       icon: GraduationCap,
       title: "Capacity Building and Training",
       description: "We organize training programs and workshops to help distributors adopt best practices in operations, inventory management, and customer relations, promoting professionalism and efficiency.",
-      items: [
-        "Digital transformation workshops",
-        "Inventory management best practices",
-        "Customer relationship management training",
-        "Financial management seminars"
-      ]
+      // items: [
+      //   "Digital transformation workshops",
+      //   "Inventory management best practices",
+      //   "Customer relationship management training",
+      //   "Financial management seminars"
+      // ]
     },
     {
       icon: Users,
       title: "Collaborative Activities",
       description: "UPFDA has undertaken several impactful campaigns, including its participation in AICPDF's 'Hum Hai, Hum Rahenge' initiative, focusing on equitable trade practices and fair margins.",
-      items: [
-        "Inter-association knowledge sharing programs",
-        "Joint industry initiatives with AICPDF",
-        "'Hum Hai, Hum Rahenge' campaign participation",
-        "Regional distributor meetups"
-      ]
+      // items: [
+      //   "Inter-association knowledge sharing programs",
+      //   "Joint industry initiatives with AICPDF",
+      //   "'Hum Hai, Hum Rahenge' campaign participation",
+      //   "Regional distributor meetups"
+      // ]
     },
     {
       icon: ScrollText,
       title: "Policy Recommendations",
       description: "UPFDA actively works with AICPDF and other stakeholders to recommend changes that benefit traditional trade, including equitable margins and efficient supply chain processes.",
-      items: [
-        "Supply chain optimization proposals",
-        "Fair margin structure recommendations",
-        "Trade policy reform suggestions",
-        "Digital adoption framework development"
-      ]
+      // items: [
+      //   "Supply chain optimization proposals",
+      //   "Fair margin structure recommendations",
+      //   "Trade policy reform suggestions",
+      //   "Digital adoption framework development"
+      // ]
     }
   ];
 

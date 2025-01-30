@@ -217,22 +217,22 @@ const Header = () => {
                             >
                                 <div className="py-1">
                                     <Link
-                                        href="/inquiry/option1"
+                                        href="/distributor-inquiry"
                                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
                                     >
-                                        Option 1
+                                        Become a Distributor
                                     </Link>
                                     <Link
-                                        href="/inquiry/option2"
+                                        href="/retailer-inquiry"
                                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
                                     >
-                                        Option 2
+                                        Become a Retailer
                                     </Link>
                                     <Link
-                                        href="/inquiry/option3"
+                                        href="/manufacturer-inquiry"
                                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
                                     >
-                                        Option 3
+                                        Become a Dealer
                                     </Link>
                                 </div>
                             </div>

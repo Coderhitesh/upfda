@@ -42,16 +42,30 @@ const LeadershipCard = ({ title, name, role, email, icon: Icon }) => (
     </div>
 );
 
-const JointSecretarySection = ({ title, description, icon: Icon }) => (
-    <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-all duration-300">
-        <div className="flex items-center mb-4">
-            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center mr-3">
-                <Icon className="h-5 w-5 text-[#E71108]" />
+const JointSecretarySection = ({ title, name, description, icon: Icon }) => (
+    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-all duration-300">
+    <div className="flex items-start space-x-4">
+        <div className="flex-shrink-0">
+            <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                <Icon className="h-6 w-6 text-[#E71108]" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
         </div>
-        <p className="text-gray-600 text-sm">{description}</p>
+        <div className="flex-1">
+            <span className="text-sm text-gray-600">Post of Joint Secretaries</span>
+            <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+            <p className="text-[#E71108] font-medium mt-1">{name}</p>
+            <p className="text-gray-600 mt-2 text-sm">{description}</p>
+            {/* {email && (
+                <div className="mt-3 flex items-center text-sm text-gray-500">
+                    <Mail className="h-4 w-4 mr-2" />
+                    <a href={`mailto:${email}`} className="hover:text-[#E71108]">
+                        {email}
+                    </a>
+                </div>
+            )} */}
+        </div>
     </div>
+</div>
 );
 
 const Leadership = () => {
@@ -62,7 +76,8 @@ const Leadership = () => {
                 <div className="text-center mb-16">
                     <h1 className="text-4xl font-bold text-gray-900 mb-6">Meet the Leadership Team</h1>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                        The Uttar Pradesh Federation of Distributor Associations (UPFDA) is guided by a dedicated team of leaders committed to advocating for fair trade practices, supporting distributors, and strengthening the traditional trade ecosystem in Uttar Pradesh.
+                        The Uttar Pradesh Federation of Distributor Associations (UPFDA) is guided by a dedicated team of leaders committed to advocating for fair trade practices, supporting distributors, and strengthening the traditional trade ecosystem in Uttar Pradesh. Our leadership team ensures that the voices of distributors are heard at state and national levels, driving positive change in the industry.
+
                     </p>
                 </div>
 
@@ -125,52 +140,61 @@ const Leadership = () => {
                             title="Company Affairs"
                             description="Responsible for liaising with manufacturers and ensuring smooth communication between distributors and companies.Coordinates discussions around pricing, margins, and policy changes."
                             icon={Briefcase}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Media & Communications"
                             description="Oversees external communication, including press releases, media interactions, and digital outreach. Manages the federation’s social media channels, website updates, and public relations campaigns."
                             icon={Newspaper}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Member Relations"
                             description="Ensures active engagement with district and local associations. Handles membership drives, membership queries, grievances, and onboarding processes.
 "
                             icon={UserPlus}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Training & Development"
                             description="Organizes workshops, seminars, and training sessions for distributors. Collaborates with external experts to provide skill development opportunities.
 "
                             icon={GraduationCap}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Policy Advocacy"
                             description="Focuses on building strong relationships with policymakers and advocating for fair trade practices. Prepares reports and proposals to address systemic issues affecting distributors.
 "
                             icon={ScrollText}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Legal Affairs"
                             description="Handles legal concerns of members and advises on compliance with laws and regulations. Advises on compliance with laws and regulations impacting the distribution industry.
 "
                             icon={Gavel}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Finance & Revenue"
                             description="Assists the Treasurer in managing financial matters. Focuses on financial planning, fundraising, and ensuring efficient use of resources.
 "
                             icon={Wallet}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="IT & Digital Initiatives"
                             description="Promotes the use of technology in distribution and supply chain operations. Oversees digital transformation initiatives and online member services.    "
                             icon={Laptop}
+                            name="[Name]"
                         />
                         <JointSecretarySection
                             title="Event Coordination"
                             description="Plans and executes events such as meetings, conferences, and awareness campaigns. Ensures smooth logistical arrangements for UPFDA activities.
 "
                             icon={Calendar}
+                            name="[Name]"
                         />
                     </div>
                 </div>
