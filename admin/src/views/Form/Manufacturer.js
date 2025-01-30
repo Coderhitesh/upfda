@@ -24,7 +24,7 @@ const Manufacturer = () => {
             const response = await fetch('https://www.test.blueaceindia.com/api/v1/get_distributor');
             const data = await response.json();
             const reverseData = data.data.reverse();
-            const distributors = reverseData.filter(distributor => distributor.type === "Manufacturer");
+            const distributors = reverseData.filter(distributor => distributor.type === "dealer");
             setDistributors(distributors || []);
         } catch (error) {
             console.error('Error fetching Manufacturers:', error);

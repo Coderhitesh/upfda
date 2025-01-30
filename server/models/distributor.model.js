@@ -150,7 +150,7 @@ const distributorSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['Distributor', 'Retailer', 'Manufacturer'],
+        enum: ['Distributor', 'Retailer', 'dealer'],
     }
 }, { timestamps: true });
 

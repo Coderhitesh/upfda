@@ -145,7 +145,7 @@ const Header = () => {
                                             href="/manufacturer-inquiry"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
                                         >
-                                            Become a Manufacturer 
+                                            Become a Dealer 
                                         </Link>
                                     </div>
                                 </div>

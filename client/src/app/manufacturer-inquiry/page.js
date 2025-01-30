@@ -48,7 +48,7 @@ export default function page() {
             partner2Image: null,
             anyOtherDocImage: null,
         },
-        type: "Manufacturer",
+        type: "dealer",
     });
 
     const handleSubmit = async (e) => {
@@ -113,7 +113,7 @@ export default function page() {
                             <Building2 className="h-12 w-12 text-[#CF2732]" />
                         </div>
                         <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                        Manufacturer Form
+                        Dealer Form
                         </h1>
                         <p className="mt-4 text-lg text-gray-600">
                             Complete the registration process in two simple steps
