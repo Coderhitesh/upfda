@@ -15,17 +15,16 @@ const Header = () => {
 
     const navigation = [
         { name: "Home", href: "/" },
-        // { name: "About Us", href: "/about" },
         {
             name: "About Us",
             href: "/about",
             dropdown: [
                 { name: "Organization & Leadership", href: "/leadership" },
                 { name: "Initiatives", href: "/initiatives" },
-                { name: "Membership", href: "/membership" },
                 { name: "Activities and Events", href: "/activities-events" }
             ]
         },
+        { name: "Membership", href: "/membership" },
         { name: "Resources", href: "/resources" },
         { name: "Contact Us", href: "/contact" },
         { name: "News Room", href: "/news" },
@@ -34,7 +33,8 @@ const Header = () => {
     return (
         <header className="relative bg-white shadow-md">
             {/* Top Bar */}
-            <div className="w-full bg-gradient-to-r from-red-400 to-red-300 py-2 px-4 md:px-20">
+            {/* <div className="w-full bg-gradient-to-r from-red-400 to-red-300 py-2 px-4 md:px-20"> */}
+            <div className="w-full bg-[#192130] py-2 px-4 md:px-20">
                 <div className="max-w-[1500px] mx-auto flex justify-between items-center">
                     <div className="flex gap-4  md:flex-row items-center justify-center md:justify-start w-full md:items-center">
                         <a href="tel:+919821480775" className="flex items-center space-x-2 text-white font-medium transition-colors duration-200">
@@ -91,9 +91,9 @@ const Header = () => {
                                     {item.name}
                                     {item.dropdown && <ChevronDown className="ml-1 h-4 w-4" />}
                                 </Link>
-                                
+
                                 {item.dropdown && activeDropdown === item.name && (
-                                    <div 
+                                    <div
                                         className="absolute left-0 mt-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
                                         onMouseEnter={() => setActiveDropdown(item.name)}
                                         onMouseLeave={() => setActiveDropdown(null)}
@@ -113,12 +113,45 @@ const Header = () => {
                                 )}
                             </div>
                         ))}
-                        
+
                         {/* Inquiry Now Button */}
-                        <button className="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700 transition-colors duration-200">
-                            <MessageSquarePlus className="mr-2 h-4 w-4" />
-                            Inquiry Now
-                        </button>
+                        <div className="relative">
+                            <button
+                                onClick={() => setActiveDropdown((prev) => (prev === "inquiry" ? null : "inquiry"))}
+                                className="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700 transition-colors duration-200"
+                            >
+                                <MessageSquarePlus className="mr-2 h-4 w-4" />
+                                Become a Member
+                            </button>
+                            {activeDropdown === "inquiry" && (
+                                <div
+                                    className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+                                    onMouseLeave={() => setActiveDropdown(null)} // Close on hover-out
+                                >
+                                    <div className="py-1">
+                                        <Link
+                                            href="/distributor-inquiry"
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
+                                        >
+                                            Become a Distributor
+                                        </Link>
+                                        <Link
+                                            href="/retailer-inquiry"
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
+                                        >
+                                            Become a Retailer
+                                        </Link>
+                                        <Link
+                                            href="/manufacturer-inquiry"
+                                            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
+                                        >
+                                            Become a Manufacturer 
+                                        </Link>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+
                     </nav>
 
                     {/* Mobile Menu Button */}
@@ -168,10 +201,44 @@ const Header = () => {
                         </div>
                     ))}
                     {/* Mobile Inquiry Button */}
-                    <button className="mt-4 w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700">
-                        <MessageSquarePlus className="mr-2 h-5 w-5" />
-                        Inquiry Now
-                    </button>
+                    {/* Mobile Inquiry Button */}
+                    <div className="relative">
+                        <button
+                            onClick={() => setActiveDropdown((prev) => (prev === "mobile-inquiry" ? null : "mobile-inquiry"))}
+                            className="mt-4 w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700"
+                        >
+                            <MessageSquarePlus className="mr-2 h-5 w-5" />
+                            Inquiry Now
+                        </button>
+                        {activeDropdown === "mobile-inquiry" && (
+                            <div
+                                className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50"
+                                onMouseLeave={() => setActiveDropdown(null)} // Close on hover-out
+                            >
+                                <div className="py-1">
+                                    <Link
+                                        href="/inquiry/option1"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
+                                    >
+                                        Option 1
+                                    </Link>
+                                    <Link
+                                        href="/inquiry/option2"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
+                                    >
+                                        Option 2
+                                    </Link>
+                                    <Link
+                                        href="/inquiry/option3"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
+                                    >
+                                        Option 3
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
                 </div>
             </div>
         </header>

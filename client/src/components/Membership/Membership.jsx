@@ -6,7 +6,6 @@ import {
   Shield,
   Network,
   BookOpen,
-  CheckCircle2,
   ArrowRight,
   Building,
   Handshake,

@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const ContactCard = ({ icon: Icon, title, content, hrefLink }) => (
   <div className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
@@ -25,10 +27,15 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    try {
+      const res = await axios.post('http://localhost:5001/api/v1/create_inquiry',formData)
+      toast.success(res.data.message || 'Inquiry sent successfully');
+    } catch (error) {
+      console.log("Internal server error", error);
+      toast.error(error?.response?.data?.message || 'Something went wrong');
+    }
   };
 
   const handleChange = (e) => {

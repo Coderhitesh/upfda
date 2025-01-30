@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { Info, UserPlus, ChevronRight, Award, Clock, Building2, Store, ShoppingBag, Globe, Users, Package, Archive, Star, Quote, MapPin, Phone, Mail, Send } from 'lucide-react';
+import Link from "next/link";
+import axios from "axios";
+import toast from "react-hot-toast";
+import Banner from "../Banner/Banner";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
-import { Info, UserPlus, ChevronRight, Award, Clock, Building2, Store, ShoppingBag, Globe, Users, Package, Archive, Star, Quote, MapPin, Phone, Mail, Send } from 'lucide-react';
-import Link from "next/link";
 
 const Counter = ({ end, duration, label, icon: Icon }) => {
     const [count, setCount] = useState(0);
@@ -46,16 +48,8 @@ const Counter = ({ end, duration, label, icon: Icon }) => {
     );
 };
 
+
 const Home = () => {
-    const settings = {
-        dots: true,
-        fade: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        waitForAnimate: false,
-    };
 
     const stats = [
         { icon: Users, count: 5000, label: "Satisfied Customers", duration: 2000 },
@@ -123,47 +117,40 @@ const Home = () => {
         ]
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission
+    // contact for submit here 
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const res = await axios.post('http://localhost:5001/api/v1/create_inquiry', formData)
+            toast.success(res.data.message || 'Inquiry sent successfully');
+        } catch (error) {
+            console.log("Internal server error", error);
+            toast.error(error?.response?.data?.message || 'Something went wrong');
+        }
+    };
+
+    // contact section end here 
+
+    
 
     return (
         <main>
-
-            {/* hero section start  */}
-
-            <section className="w-full">
-                <div className="slider-container">
-                    <Slider {...settings}>
-                        <div className="relative hero_banner_height w-full">
-                            <Image
-                                src={"/banner5.jpg"}
-                                alt="banner"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-                        </div>
-                        <div className="relative w-full">
-                            <Image
-                                src={"/banner5.jpg"}
-                                alt="banner2"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-                        </div>
-                        <div className="relative w-full">
-                            <Image
-                                src={"/banner5.jpg"}
-                                alt="banner3"
-                                layout="fill"
-                                objectFit="cover"
-                            />
-                        </div>
-                    </Slider>
-                </div>
-            </section>
-
+            <Banner />
             {/* hero section end  */}
 
             <section className="w-full bg-[#e7bca2] py-20 px-4 sm:px-6 lg:px-8">
@@ -243,13 +230,12 @@ const Home = () => {
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Service Sectors</h2>
                         <div className="w-24 h-1 bg-[#E71108] mx-auto rounded-full"></div>
                     </div>
-
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* INSTITUTIONS Box */}
                         <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div className="relative h-48 overflow-hidden">
                                 <img
-                                    src=""
+                                    src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&q=80&w=1000"
                                     alt="Institutions"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
@@ -484,6 +470,7 @@ const Home = () => {
                                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                                             placeholder="John Doe"
                                             required
+                                            onChange={handleChange}
                                         />
                                     </div>
                                     <div>
@@ -497,21 +484,23 @@ const Home = () => {
                                             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                                             placeholder="john@example.com"
                                             required
+                                            onChange={handleChange}
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                                        Subject
+                                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                                        Phone No.
                                     </label>
                                     <input
                                         type="text"
-                                        id="subject"
-                                        name="subject"
+                                        id="phone"
+                                        name="phone"
                                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                                        placeholder="How can we help?"
+                                        placeholder="+91 1234567890"
                                         required
+                                        onChange={handleChange}
                                     />
                                 </div>
 
@@ -526,6 +515,7 @@ const Home = () => {
                                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
                                         placeholder="Your message..."
                                         required
+                                        onChange={handleChange}
                                     ></textarea>
                                 </div>
 
@@ -543,7 +533,7 @@ const Home = () => {
             </section>
 
             <section>
-                
+
             </section>
 
         </main>
