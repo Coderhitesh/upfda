@@ -75,14 +75,14 @@ const About = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <p className="text-lg text-gray-600 mb-6">
             Join us in our mission to strengthen the distribution network across Uttar Pradesh.
           </p>
           <button className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#E71108] hover:bg-[#e9403a] transition-colors">
             Become a Member
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

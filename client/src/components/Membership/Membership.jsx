@@ -52,21 +52,21 @@ const Membership = () => {
       title: "Training Programs",
       description: "Access exclusive training programs and professional development resources."
     },
-    {
-      icon: Scale,
-      title: "Policy Advocacy",
-      description: "Strong representation at state and national levels for your interests."
-    },
+    // {
+    //   icon: Scale,
+    //   title: "Policy Advocacy",
+    //   description: "Strong representation at state and national levels for your interests."
+    // },
     {
       icon: Handshake,
       title: "Industry Connections",
       description: "Network with industry leaders and peers at exclusive events."
     },
-    {
-      icon: BookOpen,
-      title: "Knowledge Resources",
-      description: "Access to industry insights, best practices, and market trends."
-    }
+    // {
+    //   icon: BookOpen,
+    //   title: "Knowledge Resources",
+    //   description: "Access to industry insights, best practices, and market trends."
+    // }
   ];
 
   return (

@@ -21,7 +21,7 @@ const Manufacturer = () => {
     const fetchDistributors = async () => {
         setLoading(true);
         try {
-            const response = await fetch('http://localhost:5001/api/v1/get_distributor');
+            const response = await fetch('https://www.test.blueaceindia.com/api/v1/get_distributor');
             const data = await response.json();
             const reverseData = data.data.reverse();
             const distributors = reverseData.filter(distributor => distributor.type === "Manufacturer");
@@ -76,7 +76,7 @@ const Manufacturer = () => {
     const handleDeleteBlog = async (id) => {
         setLoading(true);
         try {
-            await axios.delete(`http://localhost:5001/api/v1/delete_form/${id}`);
+            await axios.delete(`https://www.test.blueaceindia.com/api/v1/delete_form/${id}`);
             setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== id));
             toast.success('Deleted successfully!');
         } catch (error) {

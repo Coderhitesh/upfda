@@ -24,7 +24,7 @@ const Header = () => {
             ]
         },
         { name: "Initiatives", href: "/initiatives" },
-        { name: "Membership", href: "/activities-events" },
+        { name: "Membership", href: "/membership" },
         { name: "Resources", href: "/resources" },
         { name: "Contact Us", href: "/contact" },
         { name: "News Room", href: "/news" },

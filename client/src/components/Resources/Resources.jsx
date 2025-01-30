@@ -30,9 +30,9 @@ const Resources = () => {
               <p className="text-gray-600 mb-4">
                 Stay informed with the latest news and trends in FMCG distribution, policy changes, and market opportunities.
               </p>
-              <button className="flex items-center text-[#E71108] hover:text-[#E71108] transition-colors">
+              {/* <button className="flex items-center text-[#E71108] hover:text-[#E71108] transition-colors">
                 Read More <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -49,9 +49,9 @@ const Resources = () => {
               <p className="text-gray-600 mb-4">
                 Access important guidelines, legal resources, and documentation to help you navigate industry challenges.
               </p>
-              <button className="flex items-center text-[#E71108] hover:text-[#E71108] transition-colors">
+              {/* <button className="flex items-center text-[#E71108] hover:text-[#E71108] transition-colors">
                 View Documents <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              </button> */}
             </div>
           </div>
 
@@ -68,9 +68,9 @@ const Resources = () => {
               <p className="text-gray-600 mb-4">
                 Download guides and presentations from our workshops and seminars to enhance your skills and business operations.
               </p>
-              <button className="flex items-center text-[#E71108] hover:text-[#E71108] transition-colors">
+              {/* <button className="flex items-center text-[#E71108] hover:text-[#E71108] transition-colors">
                 Access Materials <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

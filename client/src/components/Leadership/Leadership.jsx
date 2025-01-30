@@ -83,14 +83,34 @@ const Leadership = () => {
                         <LeadershipCard
                             title="Senior Vice President"
                             name="[Name]"
-                            role="Oversees district-level associations and supports inter-association collaboration."
+                            role="Oversees district-level associations and supports inter-association collaboration. Assists the President in driving initiatives"
+                            icon={Briefcase}
+                        />
+                        <LeadershipCard
+                            title="Vice Presidents"
+                            name="Western UP, Central UP, Eastern UP"
+                            role="Focuses on regional representation, addressing specific trade concerns, and fostering relationships between local associations"
                             icon={Briefcase}
                         />
                         <LeadershipCard
                             title="General Secretary"
                             name="[Name]"
                             role="Manages operations, member communication, and coordination between UPFDA and local associations."
-                            email="secretary@upfda.org"
+                            email="generalsecretary@upfda.org"
+                            icon={Building2}
+                        />
+                        <LeadershipCard
+                            title="Treasurer"
+                            name="[Name]"
+                            role="Manages financial planning, membership dues, and ensures transparency in financial matters."
+                            email="treasurer@upfda.org"
+                            icon={Building2}
+                        />
+                        <LeadershipCard
+                            title="Executive Members"
+                            name="[Name]"
+                            role="Executive Members represent the voice of distributors across Uttar Pradesh, support the leadership team in decision-making, and drive the implementation of UPFDA initiatives at the grassroots level."
+                            email="executive@upfda.org"
                             icon={Building2}
                         />
                     </div>
@@ -98,51 +118,58 @@ const Leadership = () => {
 
                 {/* Joint Secretaries */}
                 <div className="mb-16">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-8">Joint Secretaries</h2>
+                    <h2 className="text-2xl font-bold text-gray-900">Joint Secretaries</h2>
+                    <p className=' mb-8'>Supports administrative functions and ensures smooth execution of UPFDA activities. Assists the General Secretary and Vice Presidents in driving initiatives.</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <JointSecretarySection
                             title="Company Affairs"
-                            description="Responsible for liaising with manufacturers and ensuring smooth communication between distributors and companies."
+                            description="Responsible for liaising with manufacturers and ensuring smooth communication between distributors and companies.Coordinates discussions around pricing, margins, and policy changes."
                             icon={Briefcase}
                         />
                         <JointSecretarySection
                             title="Media & Communications"
-                            description="Oversees external communication, including press releases, media interactions, and digital outreach."
+                            description="Oversees external communication, including press releases, media interactions, and digital outreach. Manages the federation’s social media channels, website updates, and public relations campaigns."
                             icon={Newspaper}
                         />
                         <JointSecretarySection
                             title="Member Relations"
-                            description="Ensures active engagement with district and local associations."
+                            description="Ensures active engagement with district and local associations. Handles membership drives, membership queries, grievances, and onboarding processes.
+"
                             icon={UserPlus}
                         />
                         <JointSecretarySection
                             title="Training & Development"
-                            description="Organizes workshops, seminars, and training sessions for distributors."
+                            description="Organizes workshops, seminars, and training sessions for distributors. Collaborates with external experts to provide skill development opportunities.
+"
                             icon={GraduationCap}
                         />
                         <JointSecretarySection
                             title="Policy Advocacy"
-                            description="Focuses on building strong relationships with policymakers and advocating for fair trade practices."
+                            description="Focuses on building strong relationships with policymakers and advocating for fair trade practices. Prepares reports and proposals to address systemic issues affecting distributors.
+"
                             icon={ScrollText}
                         />
                         <JointSecretarySection
                             title="Legal Affairs"
-                            description="Handles legal concerns of members and advises on compliance with laws and regulations."
+                            description="Handles legal concerns of members and advises on compliance with laws and regulations. Advises on compliance with laws and regulations impacting the distribution industry.
+"
                             icon={Gavel}
                         />
                         <JointSecretarySection
                             title="Finance & Revenue"
-                            description="Assists the Treasurer in managing financial matters and planning."
+                            description="Assists the Treasurer in managing financial matters. Focuses on financial planning, fundraising, and ensuring efficient use of resources.
+"
                             icon={Wallet}
                         />
                         <JointSecretarySection
                             title="IT & Digital Initiatives"
-                            description="Promotes the use of technology in distribution and supply chain operations."
+                            description="Promotes the use of technology in distribution and supply chain operations. Oversees digital transformation initiatives and online member services.    "
                             icon={Laptop}
                         />
                         <JointSecretarySection
                             title="Event Coordination"
-                            description="Plans and executes events such as meetings, conferences, and awareness campaigns."
+                            description="Plans and executes events such as meetings, conferences, and awareness campaigns. Ensures smooth logistical arrangements for UPFDA activities.
+"
                             icon={Calendar}
                         />
                     </div>
