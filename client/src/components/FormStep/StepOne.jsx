@@ -1,6 +1,7 @@
 "use client";
 
 import Select from "react-select";
+import { toast } from 'react-hot-toast';
 
 const StepOne = ({ formData, setFormData, setStep }) => {
     const handleInputChange = (e) => {
@@ -18,9 +19,75 @@ const StepOne = ({ formData, setFormData, setStep }) => {
         }));
     };
 
+    const validateForm = () => {
+        const requiredFields = [
+            'distributorEntityName',
+            'constitutionEntity',
+            'address',
+            'city',
+            'state',
+            'pincode',
+            'location',
+            'gstNo',
+            'panNo',
+            'FSSAINo',
+            'ownerName',
+            'phoneNo',
+            'email',
+            'associatedCompany',
+            'startingYear',
+            'numberOfCustomers',
+            'godownArea',
+            'noOfEmployees',
+            'noOfVehicles',
+            'monthlyTurnOver',
+            'isERPUsed',
+            'distributorAssociationName'
+        ];
+
+        const requiredArrayFields = [
+            'coverageArea',
+            'channelsOfOperation',
+            'typesOfOperation',
+            'businessOperations'
+        ];
+
+        // Check regular fields
+        for (const field of requiredFields) {
+            if (!formData[field]) {
+                toast.error(`Please fill in ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
+                return false;
+            }
+        }
+
+        // Check array fields
+        for (const field of requiredArrayFields) {
+            if (!formData[field]?.length) {
+                toast.error(`Please select at least one option for ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
+                return false;
+            }
+        }
+
+        // Validate phone number
+        if (!/^\d{10}$/.test(formData.phoneNo)) {
+            toast.error('Please enter a valid 10-digit phone number');
+            return false;
+        }
+
+        // Validate email
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            toast.error('Please enter a valid email address');
+            return false;
+        }
+
+        return true;
+    };
+
     const handleNext = (e) => {
         e.preventDefault();
-        setStep(2);
+        if (validateForm()) {
+            setStep(2);
+        }
     };
 
     const options = {
@@ -76,6 +143,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.distributorEntityName}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -88,6 +156,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.constitutionEntity}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     >
                         <option value="">Select Type</option>
                         <option value="Proprietor">Proprietor</option>
@@ -106,6 +175,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         onChange={handleInputChange}
                         rows={3}
                         className="mt-1 block w-full px-[6px] border py-1 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -117,6 +187,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.city}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -128,6 +199,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.state}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -139,6 +211,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.pincode}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -150,6 +223,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.location}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -161,6 +235,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.gstNo}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -172,6 +247,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.panNo}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -183,6 +259,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.FSSAINo}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -194,6 +271,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.ownerName}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -205,6 +283,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.phoneNo}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -216,6 +295,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.alternatePhoneNo}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -227,6 +307,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -238,6 +319,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.associatedCompany}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -249,6 +331,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         options={options.coverageArea}
                         onChange={(selectedOptions) => handleSelectChange("coverageArea", selectedOptions)}
                         className="mt-1"
+                        required
                     />
                 </div>
 
@@ -260,6 +343,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.startingYear}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -271,6 +355,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.coverageAreaDescription}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -282,6 +367,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.numberOfCustomers}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -293,6 +379,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.godownArea}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -304,6 +391,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.noOfEmployees}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -315,6 +403,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.noOfVehicles}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -326,6 +415,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.typeOfVehicles}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -337,6 +427,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.monthlyTurnOver}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -348,6 +439,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.isERPUsed}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -359,6 +451,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         value={formData.distributorAssociationName}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
                     />
                 </div>
 
@@ -373,6 +466,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                             handleSelectChange("channelsOfOperation", selectedOptions)
                         }
                         className="mt-1"
+                        required
                     />
                 </div>
 
@@ -383,6 +477,7 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                         options={options.typesOfOperation}
                         onChange={(selectedOptions) => handleSelectChange("typesOfOperation", selectedOptions)}
                         className="mt-1"
+                        required
                     />
                 </div>
 
@@ -395,18 +490,19 @@ const StepOne = ({ formData, setFormData, setStep }) => {
                             handleSelectChange("businessOperations", selectedOptions)
                         }
                         className="mt-1"
+                        required
                     />
                 </div>
             </div>
 
             <div className="flex justify-end mt-8">
-                <button
-                    type="button"
-                    onClick={handleNext}
-                    className="bg-[#CF2732] text-white px-6 py-2 rounded-md hover:bg-[#ff0213] focus:outline-none focus:ring-2 focus:ring-[#CF2732] focus:ring-offset-2"
-                >
-                    Next Step
-                </button>
+            <button
+                type="button"
+                onClick={handleNext}
+                className="bg-[#CF2732] text-white px-6 py-2 rounded-md hover:bg-[#ff0213] focus:outline-none focus:ring-2 focus:ring-[#CF2732] focus:ring-offset-2"
+            >
+                Next Step
+            </button>
             </div>
         </div>
     );

@@ -20,11 +20,11 @@ const Header = () => {
             href: "/about",
             dropdown: [
                 { name: "Organization & Leadership", href: "/leadership" },
-                { name: "Initiatives", href: "/initiatives" },
                 { name: "Activities and Events", href: "/activities-events" }
             ]
         },
-        { name: "Membership", href: "/membership" },
+        { name: "Initiatives", href: "/initiatives" },
+        { name: "Membership", href: "/activities-events" },
         { name: "Resources", href: "/resources" },
         { name: "Contact Us", href: "/contact" },
         { name: "News Room", href: "/news" },
@@ -68,9 +68,9 @@ const Header = () => {
                     <div className="flex-shrink-0">
                         <Link href="/" className="flex items-center space-x-2">
                             <Image
-                                width={70}
-                                height={70}
-                                src="/logo.png"
+                                width={90}
+                                height={90}
+                                src="/logo.jpg"
                                 alt="Logo"
                                 priority
                                 layout="intrinsic"
