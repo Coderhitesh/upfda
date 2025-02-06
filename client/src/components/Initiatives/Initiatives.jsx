@@ -84,7 +84,7 @@ const Initiatives = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F1D5DE] py-16">
+    <div className="min-h-screen bg-[#f2d8a2] py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="text-center mb-16">
@@ -110,7 +110,7 @@ const Initiatives = () => {
         <div className="bg-white rounded-xl shadow-sm p-8 mb-16">
           <div className="flex items-center mb-8">
             <Handshake className="h-8 w-8 text-[#E71108] mr-4" />
-            <h2 className="text-2xl font-bold text-gray-900">Ongoing Projects</h2>
+            <h2 className="text-2xl font-bold text-gray-900">Ongoing Campaign & Projects</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3].map((_, index) => (

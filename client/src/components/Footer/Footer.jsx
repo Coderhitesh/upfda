@@ -8,7 +8,8 @@ import {
     Twitter, 
     Instagram, 
     Linkedin,
-    ChevronRight
+    ChevronRight,
+    Youtube
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -30,10 +31,11 @@ const Footer = () => {
     ];
 
     const socialLinks = [
-        { icon: <Facebook size={20} />, label: 'Facebook', href: '#' },
-        { icon: <Twitter size={20} />, label: 'Twitter', href: '#' },
-        { icon: <Instagram size={20} />, label: 'Instagram', href: '#' },
-        { icon: <Linkedin size={20} />, label: 'LinkedIn', href: '#' }
+        { icon: <Facebook size={20} />, label: 'Facebook', href: 'https://www.facebook.com/UPFDA/' },
+        { icon: <Twitter size={20} />, label: 'Twitter', href: 'https://x.com/upfda_official' },
+        { icon: <Instagram size={20} />, label: 'Instagram', href: 'https://www.instagram.com/upfda_official/' },
+        { icon: <Linkedin size={20} />, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sumit-aggarwal-73a607349/' },
+        { icon: <Youtube size={20} />, label: 'Youtube', href: 'https://www.youtube.com/@upfdaofficial' }
     ];
 
     return (

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, Mail, Facebook, Instagram, Linkedin, ChevronDown, MessageSquarePlus } from "lucide-react";
+import { Menu, X, Phone, Mail, Facebook, Instagram, Linkedin, ChevronDown, MessageSquarePlus, Youtube, Twitter } from "lucide-react";
 import Image from "next/image";
 
 const Header = () => {
@@ -15,14 +15,17 @@ const Header = () => {
 
     const navigation = [
         { name: "Home", href: "/" },
-        {
-            name: "About Us",
-            href: "/about",
-            dropdown: [
-                { name: "Organization & Leadership", href: "/leadership" },
-                { name: "Activities and Events", href: "/activities-events" }
-            ]
-        },
+        { name: "About Us", href: "/about" },
+        { name: "Organization", href: "/leadership" },
+        { name: "Activities", href: "/activities-events" },
+        // {
+        //     name: "About Us",
+        //     href: "/about",
+        //     dropdown: [
+        //         { name: "Organization & Leadership", href: "/leadership" },
+        //         { name: "Activities and Events", href: "/activities-events" }
+        //     ]
+        // },
         { name: "Initiatives", href: "/initiatives" },
         { name: "Membership", href: "/membership" },
         { name: "Resources", href: "/resources" },
@@ -48,14 +51,20 @@ const Header = () => {
                         </a>
                     </div>
                     <div className="hidden md:flex gap-3">
-                        <a className="rounded-full p-2 text-white bg-[#0866FF] hover:bg-[#0756d3] transition-colors duration-200" href="#">
+                        <a className="rounded-full p-2 text-white bg-[#0866FF] hover:bg-[#0756d3] transition-colors duration-200" target="_blank" href="https://www.facebook.com/UPFDA/">
                             <Facebook className="h-4 w-4" />
                         </a>
-                        <a className="rounded-full p-2 text-white bg-[#d62976] hover:bg-[#b32160] transition-colors duration-200" href="#">
+                        <a className="rounded-full p-2 text-white bg-[#d62976] hover:bg-[#b32160] transition-colors duration-200" target="_blank" href="https://www.instagram.com/upfda_official/">
                             <Instagram className="h-4 w-4" />
                         </a>
-                        <a className="rounded-full p-2 text-white bg-[#0077B5] hover:bg-[#005f93] transition-colors duration-200" href="#">
+                        <a className="rounded-full p-2 text-white bg-[#0077B5] hover:bg-[#005f93] transition-colors duration-200" target="_blank" href="https://www.linkedin.com/in/sumit-aggarwal-73a607349/">
                             <Linkedin className="h-4 w-4" />
+                        </a>
+                        <a className="rounded-full p-2 text-white bg-[#FF0000] hover:bg-[#FF0000] transition-colors duration-200" target="_blank" href="https://www.youtube.com/@upfdaofficial">
+                            <Youtube className="h-4 w-4" />
+                        </a>
+                        <a className="rounded-full p-2 text-white bg-[#1DA1F2] hover:bg-[#1DA1F2] transition-colors duration-200" target="_blank" href="https://x.com/upfda_official">
+                            <Twitter className="h-4 w-4" />
                         </a>
                     </div>
                 </div>
@@ -63,17 +72,18 @@ const Header = () => {
 
             {/* Main Header */}
             <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
-                <div className="flex h-[90px] items-center justify-between">
+                <div className="flex py-1 items-center justify-between">
                     {/* Logo */}
                     <div className="flex-shrink-0">
                         <Link href="/" className="flex items-center space-x-2">
                             <Image
-                                width={90}
-                                height={90}
+                                width={100}
+                                height={100}
                                 src="/logo.jpg"
                                 alt="Logo"
                                 priority
                                 layout="intrinsic"
+                                style={{height: "90px", width: "110px"}}
                             />
                         </Link>
                     </div>

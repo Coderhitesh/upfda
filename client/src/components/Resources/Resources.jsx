@@ -3,7 +3,7 @@ import { Newspaper, FileText, BookOpen, ArrowRight } from 'lucide-react';
 
 const Resources = () => {
   return (
-    <div className="min-h-screen bg-[#F1D5DE] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f2d8a2] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
@@ -18,7 +18,7 @@ const Resources = () => {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Industry Updates Card */}
           <div className="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-            {/* <div className="p-1 bg-gradient-to-r from-[#D72826] to-[#F1D5DE]"></div> */}
+            {/* <div className="p-1 bg-gradient-to-r from-[#D72826] to-[#f2d8a2]"></div> */}
             <div className="p-1 bg-gradient-to-r from-[#E71108] to-[#ffb5b3]"></div>
             <div className="p-6">
               <div className="flex items-center mb-4">

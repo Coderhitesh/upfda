@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Info, UserPlus, ChevronRight, Award, Clock, Building2, Store, ShoppingBag, Globe, Users, Package, Archive, Star, Quote, MapPin, Phone, Mail, Send } from 'lucide-react';
+import { Info, UserPlus, ChevronRight, Clock, Building2, Store, ShoppingBag, Globe, Users, Package, Star, Quote, MapPin, Phone, Mail, Send, TruckIcon, Users2, Truck, UserCheck } from 'lucide-react';
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -8,6 +8,7 @@ import Banner from "../Banner/Banner";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import media from '/media.jpg';
 
 const Counter = ({ end, duration, label, icon: Icon }) => {
     const [count, setCount] = useState(0);
@@ -34,7 +35,7 @@ const Counter = ({ end, duration, label, icon: Icon }) => {
 
     return (
         <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-[#FFF1E8] rounded-full">
+            <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-[#FFFDE0] rounded-full">
                 <Icon className="w-8 h-8 text-[#E71108]" />
             </div>
             <div className="text-center">
@@ -52,11 +53,11 @@ const Counter = ({ end, duration, label, icon: Icon }) => {
 const Home = () => {
 
     const stats = [
-        { icon: Users, count: 5000, label: "Satisfied Customers", duration: 2000 },
-        { icon: Award, count: 150, label: "Team Members", duration: 1500 },
-        { icon: Package, count: 1000, label: "Products", duration: 1800 },
-        { icon: Clock, count: 25, label: "Years Experience", duration: 1200 },
-        { icon: Archive, count: 10000, label: "Stock Keeping Units", duration: 2200 }
+        { icon: Users, count: 1500, label: "ASSOCIATIONS", duration: 2000 },
+        { icon: Truck, count: 1000, label: "DISTRIBUTORS", duration: 1800 },
+        { icon: Store, count: 25, label: "RETAILERS", duration: 1200 },
+        { icon: Package, count: 10000, label: "BRANDS", duration: 2200 },
+        { icon: UserCheck, count: 150, label: "TEAM MEMBERS", duration: 1500 },
     ];
 
     const testimonials = [
@@ -146,14 +147,14 @@ const Home = () => {
 
     // contact section end here 
 
-    
+
 
     return (
         <main>
             <Banner />
             {/* hero section end  */}
 
-            <section className="w-full bg-[#e7bca2] py-20 px-4 sm:px-6 lg:px-8">
+            <section className="w-full bg-[#ffdda6] py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-black">
                     <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-center">
                         Welcome to UPFDA
@@ -169,7 +170,7 @@ const Home = () => {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href={'/about/up/new'} className="flex items-center justify-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors group">
+                        <Link href={'/about'} className="flex items-center justify-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-white/90 transition-colors group">
                             <Info size={20} />
                             Learn More About Us
                             <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
@@ -187,43 +188,44 @@ const Home = () => {
             <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Quality Services Box */}
+                        {/* Distributor Association Box */}
                         <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex items-center justify-center w-16 h-16 bg-[#FFF1E8] rounded-full mb-6">
-                                <Award className="w-8 h-8 text-[#E71108]" />
+                            <div className="flex items-center justify-center w-16 h-16 bg-[#FFFDE0] rounded-full mb-6">
+                                <Users2 className="w-8 h-8 text-[#E71108]" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Services</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Distributor Association</h3>
                             <p className="text-gray-600">
-                                Delivering exceptional quality solutions that exceed customer expectations consistently.
+                                Exclusive membership benefits including industry insights, networking opportunities, and growth resources.
                             </p>
                         </div>
 
-                        {/* Strong Customer Focus Box */}
+                        {/* Distributor Box */}
                         <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex items-center justify-center w-16 h-16 bg-[#FFF1E8] rounded-full mb-6">
-                                <Users className="w-8 h-8 text-[#E71108]" />
+                            <div className="flex items-center justify-center w-16 h-16 bg-[#FFFDE0] rounded-full mb-6">
+                                <TruckIcon className="w-8 h-8 text-[#E71108]" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Strong Customer Focus</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Distributor</h3>
                             <p className="text-gray-600">
-                                Prioritizing customer needs and delivering personalized solutions for lasting relationships.
+                                Extensive network of certified distributors ensuring reliable product delivery across regions.
                             </p>
                         </div>
 
-                        {/* On Time Delivery Box */}
+                        {/* Retailer Box */}
                         <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                            <div className="flex items-center justify-center w-16 h-16 bg-[#FFF1E8] rounded-full mb-6">
-                                <Clock className="w-8 h-8 text-[#E71108]" />
+                            <div className="flex items-center justify-center w-16 h-16 bg-[#FFFDE0] rounded-full mb-6">
+                                <Store className="w-8 h-8 text-[#E71108]" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">On Time Delivery</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Retailer</h3>
                             <p className="text-gray-600">
-                                Meeting deadlines consistently with efficient planning and reliable execution.
+                                Comprehensive support system for retailers including training, marketing, and inventory management.
                             </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="py-16 bg-[#fff1e8]">
+
+            <section className="py-16 bg-[#fffde0]">
                 {/* <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100"> */}
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
@@ -231,12 +233,12 @@ const Home = () => {
                         <div className="w-24 h-1 bg-[#E71108] mx-auto rounded-full"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* INSTITUTIONS Box */}
+                        {/* Brands Box */}
                         <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div className="relative h-48 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1541746972996-4e0b0f43e02a?auto=format&fit=crop&q=80&w=1000"
-                                    alt="Institutions"
+                                    alt="Brands"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
@@ -245,17 +247,17 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">INSTITUTIONS</h3>
-                                <p className="text-gray-600">Providing comprehensive distribution solutions for educational and healthcare institutions.</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">BRANDS</h3>
+                                <p className="text-gray-600">Providing comprehensive distribution solutions for leading brands across industries.</p>
                             </div>
                         </div>
 
-                        {/* HORECA Box */}
+                        {/* Policymaker Box */}
                         <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div className="relative h-48 overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1000"
-                                    alt="HORECA"
+                                    src="/policymaker.jpg"
+                                    alt="Policymaker"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
@@ -264,17 +266,17 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">HORECA</h3>
-                                <p className="text-gray-600">Specialized distribution services for hotels, restaurants, and catering businesses.</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">POLICYMAKER</h3>
+                                <p className="text-gray-600">Supporting policymakers with strategic insights and regulatory guidance.</p>
                             </div>
                         </div>
 
-                        {/* GENERAL TRADE Box */}
+                        {/* Investment Firms Box */}
                         <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div className="relative h-48 overflow-hidden">
                                 <img
                                     src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&q=80&w=1000"
-                                    alt="General Trade"
+                                    alt="Investment Firms"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
@@ -283,17 +285,17 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">GENERAL TRADE (GT)</h3>
-                                <p className="text-gray-600">Supporting retail stores and traditional trade channels with efficient distribution.</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">INVESTMENT FIRMS</h3>
+                                <p className="text-gray-600">Providing financial strategies and distribution opportunities for investment firms.</p>
                             </div>
                         </div>
 
-                        {/* E-COMMERCE Box */}
+                        {/* Media Box */}
                         <div className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                             <div className="relative h-48 overflow-hidden">
                                 <img
-                                    src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1000"
-                                    alt="E-Commerce"
+                                    src="/media.jpg"
+                                    alt="Media"
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
@@ -302,13 +304,14 @@ const Home = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">E-COMMERCE</h3>
-                                <p className="text-gray-600">Digital distribution solutions for online marketplaces and e-commerce platforms.</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">MEDIA</h3>
+                                <p className="text-gray-600">Empowering media houses with insights, branding, and strategic partnerships.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
 
             <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -331,10 +334,10 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="py-16 bg-[#FFF1E8]">
+            <section className="py-16 bg-[#fffde0]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Testimonials</h2>
                         <div className="w-24 h-1 bg-[#E71108] mx-auto rounded-full mb-4"></div>
                         <p className="text-gray-600 max-w-2xl mx-auto">
                             Discover why businesses across Uttar Pradesh trust UPFDA for their distribution needs
@@ -346,7 +349,7 @@ const Home = () => {
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="px-4 py-2">
                                     <div className="bg-white rounded-2xl shadow-sm p-8 h-full relative">
-                                        <div className="absolute top-6 right-8 text-[#FFF1E8]">
+                                        <div className="absolute top-6 right-8 text-[#FFFDE0]">
                                             <Quote size={48} />
                                         </div>
 
@@ -399,21 +402,21 @@ const Home = () => {
                             <div className="space-y-6">
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0">
-                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFF1E8] rounded-lg">
+                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFFDE0] rounded-lg">
                                             <MapPin className="w-6 h-6 text-[#E71108]" />
                                         </div>
                                     </div>
                                     <div className="ml-4">
                                         <h4 className="text-lg font-medium text-gray-900">Our Location</h4>
                                         <p className="mt-1 text-gray-600">
-                                        034C, Tugalpur  Phase III, Beside Gurdwara, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh - 201306
+                                            034C, Tugalpur  Phase III, Beside Gurdwara, Greater Noida, Gautam Buddha Nagar, Uttar Pradesh - 201306
                                         </p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0">
-                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFF1E8] rounded-lg">
+                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFFDE0] rounded-lg">
                                             <Phone className="w-6 h-6 text-[#E71108]" />
                                         </div>
                                     </div>
@@ -425,19 +428,19 @@ const Home = () => {
 
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0">
-                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFF1E8] rounded-lg">
+                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFFDE0] rounded-lg">
                                             <Mail className="w-6 h-6 text-[#E71108]" />
                                         </div>
                                     </div>
                                     <div className="ml-4">
                                         <h4 className="text-lg font-medium text-gray-900">Email Address</h4>
-                                        <p className="mt-1 text-gray-600">media@upfda.in</p>
+                                        <p className="mt-1 text-gray-600">contact@upfda.in</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start">
                                     <div className="flex-shrink-0">
-                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFF1E8] rounded-lg">
+                                        <div className="flex items-center justify-center w-12 h-12 bg-[#FFFDE0] rounded-lg">
                                             <Clock className="w-6 h-6 text-[#E71108]" />
                                         </div>
                                     </div>

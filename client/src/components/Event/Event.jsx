@@ -3,7 +3,7 @@ import { Calendar, Clock, History, Activity } from 'lucide-react';
 
 const Event = () => {
   return (
-    <div className="min-h-screen bg-[#F1D5DE] py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#f2d8a2] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-primary mb-2">Activities and Events</h1>
