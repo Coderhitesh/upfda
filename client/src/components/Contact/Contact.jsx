@@ -66,8 +66,8 @@ const Contact = () => {
           <ContactCard
             icon={Mail}
             title="Email"
-            content="media@upfda.in"
-            hrefLink="mailto:media@upfda.in"
+            content="contact@upfda.in"
+            hrefLink="mailto:contact@upfda.in"
           />
           <ContactCard
             icon={Phone}

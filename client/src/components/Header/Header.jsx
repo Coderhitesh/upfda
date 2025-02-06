@@ -45,9 +45,9 @@ const Header = () => {
                             <span>+91 9821480775</span>
                         </a>
                         <span className="hidden md:block text-white">|</span>
-                        <a href="mailto:media@upfda.in" className="flex items-center space-x-2 text-white font-medium transition-colors duration-200">
+                        <a href="mailto:contact@upfda.in" className="flex items-center space-x-2 text-white font-medium transition-colors duration-200">
                             <Mail className="h-4 w-4" />
-                            <span>media@upfda.in</span>
+                            <span>contact@upfda.in</span>
                         </a>
                     </div>
                     <div className="hidden md:flex gap-3">

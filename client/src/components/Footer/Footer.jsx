@@ -128,10 +128,10 @@ const Footer = () => {
                             <div className="flex items-center space-x-3">
                                 <Mail className="w-5 h-5 text-gray-400" />
                                 <a 
-                                    href="mailto:media@upfda.in" 
+                                    href="mailto:contact@upfda.in" 
                                     className="text-sm text-gray-400 hover:text-white transition-colors duration-300"
                                 >
-                                    media@upfda.in
+                                    contact@upfda.in
                                 </a>
                             </div>
                             <div className="flex items-center space-x-3">
