@@ -8,7 +8,14 @@ import Image from "next/image";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
+    const [token,setToken] = useState(null)
+    useEffect(() => {
+            if (typeof window !== "undefined") {
+                const distributor = sessionStorage.getItem('token');
+                setToken(distributor)
+            }
+        }, []);
 
     useEffect(() => {
         setIsMenuOpen(false);
