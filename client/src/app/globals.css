@@ -75,3 +75,7 @@ body {
     height: 120px;
   }
 }
+
+#fileInput[type="file"] {
+  display: none;
+}

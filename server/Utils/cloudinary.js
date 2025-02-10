@@ -72,6 +72,18 @@ const uploadFile = async (filePath) => {
     }
 };
 
+const uploadPDF = async (file) => {
+    try {
+        const pdf = await cloudinary.uploader.upload(file, {
+            folder: 'images'
+        })
+        return { pdf: pdf.secure_url, public_id: pdf.public_id }
+    } catch (error) {
+        console.error(error)
+        throw new Error('Failed to upload PDF');
+    }
+}
+
 const deleteImage = async (public_id) => {
     try {
         await cloudinary.uploader.destroy(public_id);
@@ -119,4 +131,14 @@ const deleteFile = async (publicId) => {
     }
 };
 
-module.exports = { uploadSingleImage, deleteImage, uploadMultipleImages, deleteMultipleImages, uploadFile, deleteFile };
+const deletePdfFromCloudinary = async (public_id) => {
+    try {
+        await cloudinary.uploader.destroy(public_id);
+        console.log('Image Deleted')
+    } catch (error) {
+        console.error('Error in deleting PDF from Cloudinary', error)
+        throw new Error('Failed to delete Pdf fron the Cloudinary')
+    }
+}
+
+module.exports = { uploadSingleImage, deletePdfFromCloudinary, uploadPDF, deleteImage, uploadMultipleImages, deleteMultipleImages, uploadFile, deleteFile };

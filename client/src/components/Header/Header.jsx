@@ -2,12 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone, Mail, Facebook, Instagram, Linkedin, ChevronDown, MessageSquarePlus, Youtube, Twitter } from "lucide-react";
+import { Menu, X, Phone, Mail, Facebook, Instagram, Linkedin, ChevronDown, MessageSquarePlus, Youtube, Twitter, LogIn, User } from "lucide-react";
 import Image from "next/image";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState(null);
+    const token = sessionStorage.getItem('token');
 
     useEffect(() => {
         setIsMenuOpen(false);
@@ -83,7 +84,7 @@ const Header = () => {
                                 alt="Logo"
                                 priority
                                 layout="intrinsic"
-                                style={{height: "90px", width: "110px"}}
+                                style={{ height: "90px", width: "110px" }}
                             />
                         </Link>
                     </div>
@@ -125,7 +126,7 @@ const Header = () => {
                         ))}
 
                         {/* Inquiry Now Button */}
-                        <div className="relative">
+                        {/* <div className="relative">
                             <button
                                 onClick={() => setActiveDropdown((prev) => (prev === "inquiry" ? null : "inquiry"))}
                                 className="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700 transition-colors duration-200"
@@ -152,20 +153,50 @@ const Header = () => {
                                             Become a Retailer
                                         </Link>
                                         <Link
-                                            href="/manufacturer-inquiry"
+                                            href="/dealer-inquiry"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#E80F09]"
                                         >
-                                            Become a Dealer 
+                                            Become a Dealer
                                         </Link>
                                     </div>
                                 </div>
                             )}
-                        </div>
+                        </div> */}
 
+                        {
+                            token ? (
+                                <Link href={'/profile'}
+                                    // onClick={() => setActiveDropdown((prev) => (prev === "inquiry" ? null : "inquiry"))}
+                                    className="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700 transition-colors duration-200"
+                                >
+                                    <User className="mr-2 h-4 w-4" />
+                                    Profile
+                                </Link>
+                            ) : (
+                                <Link href={'/login'}
+                                    // onClick={() => setActiveDropdown((prev) => (prev === "inquiry" ? null : "inquiry"))}
+                                    className="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700 transition-colors duration-200"
+                                >
+                                    <LogIn className="mr-2 h-4 w-4" />
+                                    Login
+                                </Link>
+                            )
+                        }
                     </nav>
 
                     {/* Mobile Menu Button */}
-                    <div className="flex lg:hidden">
+                    <div className="flex items-center lg:hidden">
+                        {
+                            token ? (
+                                <Link href={'/profile'}>
+                                    <User className="mr-2 h-5 w-5" />
+                                </Link>
+                            ) : (
+                                <Link href={'/login'}>
+                                    <LogIn className="mr-2 h-5 w-5" />
+                                </Link>
+                            )
+                        }
                         <button
                             type="button"
                             className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500"
@@ -212,7 +243,7 @@ const Header = () => {
                     ))}
                     {/* Mobile Inquiry Button */}
                     {/* Mobile Inquiry Button */}
-                    <div className="relative">
+                    {/* <div className="relative">
                         <button
                             onClick={() => setActiveDropdown((prev) => (prev === "mobile-inquiry" ? null : "mobile-inquiry"))}
                             className="mt-4 w-full flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-[#E80F09] hover:bg-red-700"
@@ -247,7 +278,7 @@ const Header = () => {
                                 </div>
                             </div>
                         )}
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

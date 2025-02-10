@@ -1,9 +1,7 @@
 "use client";
-
 import Select from "react-select";
 import { toast } from 'react-hot-toast';
-
-const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
+const Retailerform = ({ formData, setFormData, setStep, isLoading }) => {
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -15,10 +13,9 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
     const handleSelectChange = (name, selectedOptions) => {
         setFormData((prev) => ({
             ...prev,
-            [name]: selectedOptions.map((option) => option.value),
+            [name]: selectedOptions ? selectedOptions.map((option) => option.value) : [],
         }));
     };
-
     const validateForm = () => {
         // const requiredFields = [
         //     'distributorEntityName',
@@ -34,12 +31,12 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
         //     'ownerName',
         //     'phoneNo',
         //     'email',
-        //     'associatedCompany',
+        //     'website',
         //     'startingYear',
         //     'numberOfCustomers',
         //     'godownArea',
+        //     'noOfRetailerOutlets',
         //     'noOfEmployees',
-        //     'noOfVehicles',
         //     'monthlyTurnOver',
         //     'isERPUsed',
         //     'distributorAssociationName',
@@ -47,9 +44,7 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
         // ];
 
         // const requiredArrayFields = [
-        //     'coverageArea',
-        //     'channelsOfOperation',
-        //     'typesOfOperation',
+        //     'customerFacilitiesProvided',
         //     'businessOperations'
         // ];
 
@@ -92,50 +87,30 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
     };
 
     const options = {
-        coverageArea: [
-            { value: "Partial City / Town", label: "Partial City / Town" },
-            { value: "Single City / Town", label: "Single City / Town" },
-            { value: "Multiple Cities / Towns", label: "Multiple Cities / Towns" },
-            { value: "Entire District", label: "Entire District" },
-            { value: "Multiple Districts", label: "Multiple Districts" },
-            { value: "Entire State", label: "Entire State" },
-            { value: "Multiple States", label: "Multiple States" },
-            { value: "PAN India", label: "PAN India" },
-        ],
-        channelsOfOperation: [
-            { value: "General Trade", label: "General Trade" },
-            { value: "HORECA", label: "HORECA" },
-            { value: "Modern Trade", label: "Modern Trade" },
-            { value: "E-Comm. & Quick Comm", label: "E-Comm. & Quick Comm" },
-            { value: "CSD & CPC", label: "CSD & CPC" },
-            { value: "Other Channels", label: "Other Channels" },
-        ],
-        typesOfOperation: [
-            { value: "Distributor (DBR)", label: "Distributor (DBR)" },
-            { value: "Super Stockist (SS)", label: "Super Stockist (SS)" },
-            { value: "Brand Marketing or Manufacturer", label: "Brand Marketing or Manufacturer" },
+        customerFacilitiesProvided: [
+            { value: "Home Delivery", label: "Home Delivery" },
+            { value: "Credit to Customers", label: "Credit to Customers" },
+            { value: "Mobile Catalogue & Order facility", label: "Mobile Catalogue & Order facility" }
         ],
         businessOperations: [
-            { value: "Cold Chain", label: "Cold Chain" },
-            { value: "FMCG", label: "FMCG" },
+            { value: "Cold Chain Products", label: "Cold Chain Products" },
+            { value: "FMCG & Consumer Products", label: "FMCG & Consumer Products" },
             { value: "Cosmetics", label: "Cosmetics" },
             { value: "Medical", label: "Medical" },
             { value: "Telecom", label: "Telecom" },
             { value: "Commodities", label: "Commodities" },
-            { value: "Other", label: "Other" },
-        ],
+            { value: "Other", label: "Other" }
+        ]
     };
-
     return (
         <div className="space-y-6">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="col-span-2">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Basic Information</h3>
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">
-                        Distributor Entity Name
+                        Retailer Entity Name (registered)
                     </label>
                     <input
                         type="text"
@@ -146,10 +121,9 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">
-                    Constitution of the entity
+                        Constitution of the entity
                     </label>
                     <select
                         name="constitutionEntity"
@@ -165,7 +139,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         <option value="Limited">Limited</option>
                     </select>
                 </div>
-
                 <div className="col-span-2">
                     <label className="block text-sm font-medium text-gray-700">Address</label>
                     <textarea
@@ -177,7 +150,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">City / Town</label>
                     <input
@@ -189,7 +161,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">State</label>
                     <input
@@ -201,7 +172,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Pincode</label>
                     <input
@@ -213,7 +183,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Location (G+ Code)</label>
                     <input
@@ -225,7 +194,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">GST No.</label>
                     <input
@@ -237,7 +205,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">PAN No.</label>
                     <input
@@ -249,7 +216,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">FSSAI No.</label>
                     <input
@@ -261,7 +227,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Owner(s) Name (Separate different names by comma)</label>
                     <input
@@ -273,7 +238,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Mobile Number of owner (preferably Whatsapp)</label>
                     <input
@@ -285,7 +249,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Alternate Mobile Number</label>
                     <input
@@ -297,7 +260,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Email ID</label>
                     <input
@@ -309,31 +271,17 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700">Associated Brands (Current Companies)</label>
+                    <label className="block text-sm font-medium text-gray-700">Website</label>
                     <input
                         type="text"
-                        name="associatedCompany"
-                        value={formData.associatedCompany}
+                        name="website"
+                        value={formData.website}
                         onChange={handleInputChange}
                         className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                         required
                     />
                 </div>
-
-                {/* Multi-Select Fields */}
-                <div className="col-span-1">
-                    <label className="block text-sm font-medium text-gray-700">What describes your Coverage Area best?</label>
-                    <Select
-                        isMulti
-                        options={options.coverageArea}
-                        onChange={(selectedOptions) => handleSelectChange("coverageArea", selectedOptions)}
-                        className="mt-1"
-                        required
-                    />
-                </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Started Year</label>
                     <input
@@ -345,19 +293,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
-                <div className="col-span-2">
-                    <label className="block text-sm font-medium text-gray-700">Coverage Area Description (Name of Localities / Cities / Towns / Districts / States)</label>
-                    <input
-                        type="text"
-                        name="coverageAreaDescription"
-                        value={formData.coverageAreaDescription}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        required
-                    />
-                </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Customer Base (number of customers served)</label>
                     <input
@@ -369,7 +304,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Godown Area (sq.ft.)</label>
                     <input
@@ -381,7 +315,17 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
+                <div className="col-span-2 md:col-span-1">
+                    <label className="block text-sm font-medium text-gray-700">Number of retail outlets (if a retail chain)</label>
+                    <input
+                        type="number"
+                        name="noOfRetailerOutlets"
+                        value={formData.noOfRetailerOutlets}
+                        onChange={handleInputChange}
+                        className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                        required
+                    />
+                </div>
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Number of employees</label>
                     <input
@@ -393,31 +337,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
-                <div className="col-span-2 md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700">Number of vehicles owned</label>
-                    <input
-                        type="number"
-                        name="noOfVehicles"
-                        value={formData.noOfVehicles}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        required
-                    />
-                </div>
-
-                <div className="col-span-2 md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700">Type of vehicles owned (Tata Ace, Mahindra Bolero etc.)</label>
-                    <input
-                        type="text"
-                        name="typeOfVehicles"
-                        value={formData.typeOfVehicles}
-                        onChange={handleInputChange}
-                        className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                        required
-                    />
-                </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Monthly Average Turnover</label>
                     <input
@@ -429,7 +348,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">ERP (Billing Software) in use</label>
                     <input
@@ -441,7 +359,6 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Distributor Association(s) Name you are enrolled with (if any). Type NO if not associated with any association</label>
                     <input
@@ -453,17 +370,19 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">
-                        Channels of Operation
+                        Customer facilities provided
                     </label>
                     <Select
                         isMulti
-                        options={options.channelsOfOperation}
+                        options={options.customerFacilitiesProvided}
                         onChange={(selectedOptions) =>
-                            handleSelectChange("channelsOfOperation", selectedOptions)
+                            handleSelectChange("customerFacilitiesProvided", selectedOptions)
                         }
+                        value={options.customerFacilitiesProvided.filter(option =>
+                            formData.customerFacilitiesProvided?.includes(option.value)
+                        )}
                         className="mt-1"
                         required
                     />
@@ -473,26 +392,15 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                     <label className="block text-sm font-medium text-gray-700">Types of Operation</label>
                     <Select
                         isMulti
-                        options={options.typesOfOperation}
-                        onChange={(selectedOptions) => handleSelectChange("typesOfOperation", selectedOptions)}
-                        className="mt-1"
-                        required
-                    />
-                </div>
-
-                <div className="col-span-2 md:col-span-1">
-                    <label className="block text-sm font-medium text-gray-700">Business Operations</label>
-                    <Select
-                        isMulti
                         options={options.businessOperations}
-                        onChange={(selectedOptions) =>
-                            handleSelectChange("businessOperations", selectedOptions)
-                        }
+                        onChange={(selectedOptions) => handleSelectChange("businessOperations", selectedOptions)}
+                        value={options.businessOperations.filter(option =>
+                            formData.businessOperations?.includes(option.value)
+                        )}
                         className="mt-1"
                         required
                     />
                 </div>
-
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Password</label>
                     <input
@@ -505,16 +413,8 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
                     />
                 </div>
             </div>
-
             <div className="flex justify-end mt-8">
-            {/* <button
-                type="button"
-                onClick={handleNext}
-                className="bg-[#CF2732] text-white px-6 py-2 rounded-md hover:bg-[#ff0213] focus:outline-none focus:ring-2 focus:ring-[#CF2732] focus:ring-offset-2"
-            >
-                Next Step
-            </button> */}
-            <button
+                <button
                     type="submit"
                     className="bg-[#CF2732] text-white px-6 py-2 rounded-md hover:bg-[#CF2732] focus:outline-none focus:ring-2 focus:ring-[#CF2732] focus:ring-offset-2"
                 >
@@ -525,4 +425,4 @@ const StepOne = ({ formData, setFormData, setStep, isLoading }) => {
     );
 };
 
-export default StepOne;
+export default Retailerform

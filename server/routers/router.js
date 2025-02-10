@@ -1,5 +1,5 @@
 const express = require("express");
-const { createDistributor, getDistributors, deleteForm } = require("../controllers/distributor.controller");
+const { createDistributor, getDistributors, deleteForm, login, updateDistributor, getSingleDistributor, uploadfileByAdmin, uploadfileByProvider } = require("../controllers/distributor.controller");
 const upload = require("../middlewares/multer");
 const { createBanner, getBanners, getSingleBanner, deleteBanner, updateBannerStatus, updatebanner } = require("../controllers/banner.controller");
 const { createInquiry, getInquiries, deleteInquiry } = require("../controllers/inquiry.controller");
@@ -18,7 +18,12 @@ const fileUpload = upload.fields([
 
 router.post("/create_distributor", fileUpload, createDistributor);
 router.get('/get_distributor', getDistributors);
+router.get('/get_distributor_by_id/:id', getSingleDistributor);
 router.delete('/delete_form/:id', deleteForm);
+router.post('/login', login)
+router.put('/update_profile/:id',fileUpload,updateDistributor)
+router.put('/update_file_By_admin/:id',upload.single('fileUploadedByAdmin'), uploadfileByAdmin)
+router.put('/update_file_By_provider/:id',upload.single('fileUploadedByDistributor'), uploadfileByProvider)
 
 // banner router here 
 router.post('/create_banner',upload.single('image'), createBanner)
