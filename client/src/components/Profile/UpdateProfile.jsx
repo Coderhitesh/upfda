@@ -312,9 +312,9 @@ const UpdateProfile = () => {
                 <div className="space-y-4">
                     <h3 className="text-lg font-semibold text-gray-900">Business Information</h3>
                     {role === 'Distributor' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                             {/* Basic Information */}
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">
                                     Distributor Entity Name
                                 </label>
@@ -327,7 +327,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">
                                     Constitution of the entity
                                 </label>
@@ -358,7 +358,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div className="">
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">City</label>
                                 <input
                                     type="text"
@@ -369,7 +369,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">State</label>
                                 <input
                                     type="text"
@@ -380,7 +380,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Pincode</label>
                                 <input
                                     type="text"
@@ -391,7 +391,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Location</label>
                                 <input
                                     type="text"
@@ -402,7 +402,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">GST No.</label>
                                 <input
                                     type="text"
@@ -413,7 +413,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">PAN No.</label>
                                 <input
                                     type="text"
@@ -424,7 +424,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">FSSAI No.</label>
                                 <input
                                     type="text"
@@ -437,7 +437,7 @@ const UpdateProfile = () => {
 
                             {/* Contact Information */}
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Phone Number</label>
                                 <input
                                     type="tel"
@@ -448,7 +448,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Alternate Phone No.</label>
                                 <input
                                     type="tel"
@@ -459,7 +459,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Email</label>
                                 <input
                                     type="email"
@@ -470,7 +470,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Associated Company</label>
                                 <input
                                     type="text"
@@ -481,7 +481,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Coverage Area Description</label>
                                 <input
                                     type="text"
@@ -492,7 +492,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Starting Year</label>
                                 <input
                                     type="text"
@@ -503,7 +503,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Number Of Customers</label>
                                 <input
                                     type="Number"
@@ -514,7 +514,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Godown Area (sq.ft.)</label>
                                 <input
                                     type="Number"
@@ -525,7 +525,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Number of employees</label>
                                 <input
                                     type="Number"
@@ -536,7 +536,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">No Of Vehicles</label>
                                 <input
                                     type="Number"
@@ -547,7 +547,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Type of vehicles owned (Tata Ace, Mahindra Bolero etc.)</label>
                                 <input
                                     type="text"
@@ -558,7 +558,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Monthly Average Turnover</label>
                                 <input
                                     type="text"
@@ -569,7 +569,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">ERP (Billing Software) in use</label>
                                 <input
                                     type="text"
@@ -580,7 +580,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Distributor Association(s) Name you are enrolled with (if any). Type NO if not associated with any association</label>
                                 <input
                                     type="text"
@@ -640,7 +640,7 @@ const UpdateProfile = () => {
 
                     {role === 'Retailer' && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">
                                     Retailer Entity Name
                                 </label>
@@ -653,7 +653,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">
                                     Constitution of the entity
                                 </label>
@@ -770,7 +770,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Phone Number</label>
                                 <input
                                     type="tel"
@@ -781,7 +781,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Alternate Phone No.</label>
                                 <input
                                     type="tel"
@@ -792,7 +792,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
 
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Email</label>
                                 <input
                                     type="email"
@@ -813,7 +813,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Starting Year</label>
                                 <input
                                     type="Date"
@@ -823,7 +823,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Number Of Customers</label>
                                 <input
                                     type="Number"
@@ -833,7 +833,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Godown Area (sq.ft.)</label>
                                 <input
                                     type="Number"
@@ -843,7 +843,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Number of retail outlets (if a retail chain)</label>
                                 <input
                                     type="Number"
@@ -853,7 +853,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Number of employees</label>
                                 <input
                                     type="Number"
@@ -863,7 +863,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Monthly Average Turnover</label>
                                 <input
                                     type="text"
@@ -873,7 +873,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">ERP (Billing Software) in use</label>
                                 <input
                                     type="text"
@@ -883,7 +883,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Distributor Association(s) Name you are enrolled with (if any). Type NO if not associated with any association</label>
                                 <input
                                     type="text"
@@ -919,8 +919,8 @@ const UpdateProfile = () => {
                     )}
 
                     {role === 'Association' && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">
                                     Retailer Entity Name
                                 </label>
@@ -932,7 +932,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Starting Year</label>
                                 <input
                                     type="Date"
@@ -996,7 +996,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Email</label>
                                 <input
                                     type="email"
@@ -1017,7 +1017,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Phone Number</label>
                                 <input
                                     type="tel"
@@ -1038,7 +1038,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div>
+                            <div className='col-span-2 md:col-span-1'>
                                 <label className="block text-sm font-medium text-gray-700">Mobile Number of the Head (preferably Whatsapp)</label>
                                 <input
                                     type="tel"
@@ -1059,7 +1059,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div>
+                            <div className="col-span-2 md:col-span-1">
                                 <label className="block text-sm font-medium text-gray-700">Mobile Number of the Executive Head (preferably Whatsapp)</label>
                                 <input
                                     type="tel"
@@ -1069,7 +1069,7 @@ const UpdateProfile = () => {
                                     className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                                 />
                             </div>
-                            <div className="">
+                            <div className="col-span-2 md:col-span-1">
                                 <label className="block text-sm font-medium text-gray-700">Who can be member of the association?</label>
                                 <Select
                                     isMulti
@@ -1090,7 +1090,7 @@ const UpdateProfile = () => {
                                     required
                                 />
                             </div>
-                            <div className="">
+                            <div className="col-span-2 md:col-span-1">
                                 <label className="block text-sm font-medium text-gray-700">What type of businesses the association is concerned with?</label>
                                 <Select
                                     isMulti
