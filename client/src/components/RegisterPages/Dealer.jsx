@@ -71,7 +71,7 @@ const Dealer = () => {
             const data = response.data;
 
             if (data.success) {
-                toast.success('Distributor created successfully!')
+                toast.success('Association created successfully!')
                 // Reset form or redirect
                 setIsLoading(false);
             } else {

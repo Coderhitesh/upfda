@@ -15,19 +15,19 @@ import Image from 'next/image';
 
 const Footer = () => {
     const quickLinks = [
-        { name: 'Home' },
-        { name: 'About Us' },
-        { name: 'Organization & Leadership' },
-        { name: 'Initiatives' },
-        { name: 'Membership' }
+        { name: 'Home', links: '/' },
+        { name: 'About Us', links: '/about' },
+        { name: 'Organization & Leadership', links: '/leadership' },
+        { name: 'Initiatives', links: '/initiatives' },
+        { name: 'Membership', links: '/membership' }
     ];
 
     const otherLinks = [
-        { name: 'Activities and Events' },
-        { name: 'Resources' },
-        { name: 'Contact Us' },
-        { name: 'News Room' },
-        { name: 'Privacy Policy' }
+        { name: 'Activities and Events', links: '/activities-events' },
+        { name: 'Resources', links: '/resources' },
+        { name: 'Contact Us', links: '/contact' },
+        { name: 'News Room', links: '/news-room' },
+        // { name: 'Privacy Policy', links: '' }
     ];
 
     const socialLinks = [
@@ -77,7 +77,7 @@ const Footer = () => {
                             {quickLinks.map((link, index) => (
                                 <li key={index}>
                                     <a 
-                                        href="#" 
+                                        href={link.links} 
                                         className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300"
                                     >
                                         <ChevronRight className="h-4 w-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -95,7 +95,7 @@ const Footer = () => {
                             {otherLinks.map((link, index) => (
                                 <li key={index}>
                                     <a 
-                                        href="#" 
+                                        href={link.links} 
                                         className="group flex items-center text-gray-400 hover:text-white transition-colors duration-300"
                                     >
                                         <ChevronRight className="h-4 w-4 mr-2 group-hover:translate-x-1 transition-transform duration-300" />

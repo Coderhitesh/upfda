@@ -95,7 +95,7 @@ const Retailer = () => {
             const data = response.data;
 
             if (data.success) {
-                toast.success('Distributor created successfully!')
+                toast.success('Retailer created successfully!')
                 // Reset form or redirect
                 setIsLoading(false);
             } else {
