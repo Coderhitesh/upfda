@@ -176,7 +176,7 @@ const Home = () => {
                             <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />
                         </Link>
 
-                        <Link href={'/membership'} className="flex items-center justify-center gap-2 bg-transparent border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors group">
+                        <Link href={'/register'} className="flex items-center justify-center gap-2 bg-transparent border-2 border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors group">
                             <UserPlus size={20} />
                             Become a Member
                             <ChevronRight className="group-hover:translate-x-1 transition-transform" size={20} />

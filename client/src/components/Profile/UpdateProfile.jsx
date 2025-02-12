@@ -61,6 +61,7 @@ const UpdateProfile = () => {
         typeOfBusinessAssociation: [],
         noOfAssociation: "",
         distributorAssociationName: "",
+        noOfMember: "",
     });
 
     useEffect(() => {
@@ -120,6 +121,7 @@ const UpdateProfile = () => {
                     typeOfBusinessAssociation: transformSelectData('typeOfBusinessAssociation'),
                     noOfAssociation: distributorData.noOfAssociation || "",
                     distributorAssociationName: distributorData.distributorAssociationName || "",
+                    noOfMember: distributorData.noOfMember || "",
                 });
             } catch (error) {
                 console.log("Internal server error", error);
@@ -158,26 +160,26 @@ const UpdateProfile = () => {
     };
 
     const validateForm = () => {
-        const requiredFields = [
-            'distributorEntityName',
-            'constitutionEntity',
-            'address',
-            'city',
-            'state',
-            'pincode',
-            'gstNo',
-            'panNo',
-            'FSSAINo',
-            'phoneNo',
-            'email'
-        ];
+        // const requiredFields = [
+        //     'distributorEntityName',
+        //     'constitutionEntity',
+        //     'address',
+        //     'city',
+        //     'state',
+        //     'pincode',
+        //     'gstNo',
+        //     'panNo',
+        //     'FSSAINo',
+        //     'phoneNo',
+        //     'email'
+        // ];
 
-        for (const field of requiredFields) {
-            if (!formData[field]) {
-                toast.error(`Please fill in ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
-                return false;
-            }
-        }
+        // for (const field of requiredFields) {
+        //     if (!formData[field]) {
+        //         toast.error(`Please fill in ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`);
+        //         return false;
+        //     }
+        // }
 
         // Validate phone number
         if (!/^\d{10}$/.test(formData.phoneNo)) {
@@ -801,7 +803,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
                             <div className="col-span-2 md:col-span-1">
-                                <label className="block text-sm font-medium text-gray-700">FSSAI No.</label>
+                                <label className="block text-sm font-medium text-gray-700">Website</label>
                                 <input
                                     type="text"
                                     name="website"
@@ -812,7 +814,7 @@ const UpdateProfile = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">Alternate Phone No.</label>
+                                <label className="block text-sm font-medium text-gray-700">Starting Year</label>
                                 <input
                                     type="Date"
                                     name="startingYear"
@@ -918,6 +920,199 @@ const UpdateProfile = () => {
 
                     {role === 'Association' && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">
+                                    Retailer Entity Name
+                                </label>
+                                <input
+                                    type="text"
+                                    name="distributorEntityName"
+                                    value={formData.distributorEntityName}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Starting Year</label>
+                                <input
+                                    type="Date"
+                                    name="startingYear"
+                                    value={formData.startingYear}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="col-span-2">
+                                <label className="block text-sm font-medium text-gray-700">Address</label>
+                                <textarea
+                                    name="address"
+                                    value={formData.address}
+                                    onChange={handleInputChange}
+                                    rows={3}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">City / Town</label>
+                                <input
+                                    type="text"
+                                    name="city"
+                                    value={formData.city}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">State</label>
+                                <input
+                                    type="text"
+                                    name="state"
+                                    value={formData.state}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Pincode</label>
+                                <input
+                                    type="text"
+                                    name="pincode"
+                                    value={formData.pincode}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Location (G+ Code)</label>
+                                <input
+                                    type="text"
+                                    name="location"
+                                    value={formData.location}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Website</label>
+                                <input
+                                    type="text"
+                                    name="website"
+                                    value={formData.website}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    name="phoneNo"
+                                    value={formData.phoneNo}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Name of Head of the organization (President / Chairman)</label>
+                                <input
+                                    type="text"
+                                    name="nameOfHead"
+                                    value={formData.nameOfHead}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Mobile Number of the Head (preferably Whatsapp)</label>
+                                <input
+                                    type="tel"
+                                    name="numberOfHead"
+                                    value={formData.numberOfHead}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Name of Executive Head of the organization (General Secretary)</label>
+                                <input
+                                    type="text"
+                                    name="nameOfExecutiveHead"
+                                    value={formData.nameOfExecutiveHead}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-gray-700">Mobile Number of the Executive Head (preferably Whatsapp)</label>
+                                <input
+                                    type="tel"
+                                    name="numberOfExecutiveHead"
+                                    value={formData.numberOfExecutiveHead}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className="">
+                                <label className="block text-sm font-medium text-gray-700">Who can be member of the association?</label>
+                                <Select
+                                    isMulti
+                                    options={options.memberOfAssociation}
+                                    value={formData.memberOfAssociation}
+                                    onChange={(selected) => handleSelectChange('memberOfAssociation', selected)}
+                                    className="mt-1"
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Total numeric strength of the organization (number of members)</label>
+                                <input
+                                    type="Number"
+                                    name="noOfMember"
+                                    value={formData.noOfMember}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+                            <div className="">
+                                <label className="block text-sm font-medium text-gray-700">What type of businesses the association is concerned with?</label>
+                                <Select
+                                    isMulti
+                                    options={options.typeOfBusinessAssociation}
+                                    value={formData.typeOfBusinessAssociation}
+                                    onChange={(selected) => handleSelectChange('typeOfBusinessAssociation', selected)}
+                                    className="mt-1"
+                                />
+                            </div>
+                            <div className="col-span-2 md:col-span-1">
+                                <label className="block text-sm font-medium text-gray-700">Distributor Association(s) Name you are enrolled with (if any). Type NO if not associated with any association</label>
+                                <input
+                                    type="text"
+                                    name="distributorAssociationName"
+                                    value={formData.distributorAssociationName}
+                                    onChange={handleInputChange}
+                                    className="mt-1 block w-full px-[6px] border py-2 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    required
+                                />
+                            </div>
+
+
 
                         </div>
                     )}

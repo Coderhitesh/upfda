@@ -23,6 +23,21 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to the API!" });
 });
 
+app.post('/admin-login', (req, res) => {
+    console.log(req.body)
+    const { email, password } = req.body;
+    const defaultEmail = process.env.ADMIN_EMAIL || "admin@gmail.com"
+    const defaultPassword = process.env.ADMIN_PASSWORD || "upfda@admin";
+
+    console.log(defaultEmail)
+    if (email === defaultEmail && password === defaultPassword) {
+
+        res.json({ message: 'Login successful', login: true })
+    } else {
+        res.status(401).json({ message: 'Invalid credentials' })
+    }
+})
+
 // API Routes
 app.use('/api/v1', router);
 

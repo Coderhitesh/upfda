@@ -20,7 +20,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    any: '',
+    email: '',
     password: '',
   });
   const [loading, setLoading] = useState(false);
@@ -35,18 +35,18 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('https://www.test.blueaceindia.com/api/v1/login', formData);
+      const res = await axios.post('https://www.test.blueaceindia.com/admin-login', formData);
       // console.log('Response:', res.data);
 
-      const { token, user } = res.data;
-      const role = user.role;
+      const { login } = res.data;
+      // const role = user.role;
 
-      if (role !== 'admin') {
-        toast.error('You are not an admin');
-        return;
-      }
+      // if (role !== 'admin') {
+      //   toast.error('You are not an admin');
+      //   return;
+      // }
 
-      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', login);
       toast.success('Login Successfully');
       window.location.href = '/'
       // navigate('/#/dashboard'); // Redirect to the admin dashboard
@@ -78,8 +78,8 @@ const Login = () => {
                       <CFormInput
                         placeholder="Email"
                         onChange={handleChange}
-                        name="any"
-                        value={formData.any}
+                        name="email"
+                        value={formData.email}
                         autoComplete="email"
                       />
                     </CInputGroup>

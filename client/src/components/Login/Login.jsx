@@ -4,7 +4,6 @@ import { Phone, Lock, LogIn, Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 import axios from 'axios';
-import dynamic from "next/dynamic";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -128,9 +127,9 @@ function Login() {
                   Remember me
                 </label>
               </div>
-              <a href="#" className="text-sm text-[#E2000A] hover:text-[#E2000A] font-medium">
+              <Link href="/forget" className="text-sm text-[#E2000A] hover:text-[#E2000A] font-medium">
                 Forgot password?
-              </a>
+              </Link>
             </div>
 
             {/* Submit Button */}

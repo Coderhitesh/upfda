@@ -1,6 +1,7 @@
 const Distributor = require("../models/distributor.model");
 const { uploadMultipleImages, uploadSingleImage, uploadFile, deleteImage, deleteMultipleImages, uploadPDF, deletePdfFromCloudinary } = require("../Utils/cloudinary");
 const sendToken = require("../Utils/SendToken");
+const SendEmail = require("../Utils/SendEmail")
 
 exports.createDistributor = async (req, res) => {
     const uploadedImages = [];
@@ -351,7 +352,6 @@ exports.forgetpassword = async (req, res) => {
                 message: "Please provide phoneNo",
             });
         }
-        ``
         const distributor = await Distributor.findOne({ phoneNo });
         if (!distributor) {
             return res.status(404).json({
@@ -379,16 +379,19 @@ exports.forgetpassword = async (req, res) => {
         // Prepare email content
         const emailContent = {
             email: distributor.email,
-            subject: "Verify Your Email Address",
+            subject: "Password Reset OTP",
             message: `Hello ${distributor.distributorEntityName},\n\n` +
-                `Please verify your email address using the OTP below:\n\n` +
+                `We received a request to reset your password.\n\n` +
+                `Please use the OTP below to proceed with resetting your password:\n\n` +
                 `OTP: ${otp}\n` +
                 `This OTP is valid for 2 minutes (expires at: ${new Date(otpExpires).toISOString()}).\n\n` +
-                `Thank you for joining us!`,
+                `If you did not request a password reset, please ignore this email.\n\n` +
+                `Thank you,\nTeam Uttar Pradesh Federation of Distributor Associations`,
         };
+        
 
         // Send email
-        await sendEmail(emailContent.email, emailContent.subject, emailContent.message);
+        await SendEmail(emailContent);
 
         return res.status(200).json({
             success: true,
@@ -447,6 +450,7 @@ exports.verifyOTP = async (req, res) => {
         distributor.Password = distributor.newPassword
         distributor.otp = null;
         distributor.otpExpires = null;
+        distributor.newPassword = null;
         await distributor.save();
 
         return res.status(200).json({
@@ -871,6 +875,95 @@ exports.uploadfileByProvider = async (req, res) => {
         return res.status(200).json({
             success: true,
             message: "File uploaded successfully",
+            data: fetchedDistributor
+        })
+    } catch (error) {
+        console.log("Internal server error", error)
+        res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error.message
+        })
+    }
+}
+
+exports.uploadfilesByAdmin = async (req, res) => {
+    try {
+        let { ids } = req.body; // Can be a single ID or an array of IDs
+        let parsedid = JSON.parse(ids)
+
+        if (!parsedid) {
+            return res.status(400).json({
+                success: false,
+                message: "Distributor ID(s) required",
+            });
+        }
+
+        // Ensure `ids` is always an array for uniform processing
+        if (!Array.isArray(parsedid)) {
+            parsedid = [parsedid]; // Convert single ID to an array
+        }
+
+        const fetchedDistributors = await Distributor.find({ _id: { $in: parsedid } });
+        if (fetchedDistributors.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "No distributors found for the given ID(s)",
+            });
+        }
+
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: "No file uploaded",
+            });
+        }
+
+        // Upload file to Cloudinary
+        const uploadedFile = await uploadPDF(req.file.path);
+        const { pdf, public_id } = uploadedFile;
+
+        // Update all fetched distributors with the new file
+        for (let distributor of fetchedDistributors) {
+            // Delete existing file if present
+            if (distributor.fileUploadedByAdmin && distributor.fileUploadedByAdmin.public_id) {
+                await deletePdfFromCloudinary(distributor.fileUploadedByAdmin.public_id);
+            }
+            distributor.fileUploadedByAdmin = { url: pdf, public_id };
+            await distributor.save();
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: `File uploaded successfully for ${fetchedDistributors.length} Provider(s)`,
+            data: fetchedDistributors
+        });
+
+    } catch (error) {
+        console.error("Internal server error:", error);
+        res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error.message,
+        });
+    }
+};
+
+exports.changeVerifiedStatus = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const fetchedDistributor = await Distributor.findById(id);
+        if (!fetchedDistributor) {
+            return res.status(404).json({
+                success: false,
+                message: "Distributor not found"
+            })
+        }
+        fetchedDistributor.isVerified = !fetchedDistributor.isVerified;
+        await fetchedDistributor.save();
+        return res.status(200).json({
+            success: true,
+            message: "Status updated successfully",
             data: fetchedDistributor
         })
     } catch (error) {

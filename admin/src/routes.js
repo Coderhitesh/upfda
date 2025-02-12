@@ -180,8 +180,8 @@ const routes = [
   { path: '/retailer/all_retailer', name: 'All Retailer', element: Retailer },
 
   // form routes here 
-  { path: '/manufacturer', name: 'Manufacturer', element: Cards, exact: true },
-  { path: '/manufacturer/all_manufacturer', name: 'All Manufacturer', element: Manufacturer },
+  { path: '/association', name: 'Association', element: Cards, exact: true },
+  { path: '/association/all_association', name: 'All Association', element: Manufacturer },
 
 ]
 

@@ -38,16 +38,16 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'All Manufacturer',
-    to: '/manufacturer/all_manufacturer',
+    name: 'All Association',
+    to: '/association/all_association',
     icon: <CIcon icon={cilImage} customClassName="nav-icon" />,
   },
-  {
-    component: CNavItem,
-    name: 'Blogs',
-    to: '/blogs/all_blogs',
-    icon: <CIcon icon={cilText} customClassName="nav-icon" />,
-  },
+  // {
+  //   component: CNavItem,
+  //   name: 'Blogs',
+  //   to: '/blogs/all_blogs',
+  //   icon: <CIcon icon={cilText} customClassName="nav-icon" />,
+  // },
   {
     component: CNavItem,
     name: 'Inquiry',

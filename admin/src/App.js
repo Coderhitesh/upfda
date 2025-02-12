@@ -18,7 +18,7 @@ const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
 const App = () => {
-  //const token = sessionStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
   const { isColorModeSet, setColorMode } = useColorModes('coreui-free-react-admin-template-theme')
   const storedTheme = useSelector((state) => state.theme)
 
@@ -36,15 +36,15 @@ const App = () => {
     setColorMode(storedTheme)
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // if(!token) {
-  //   return (
-  //     <BrowserRouter>
-  //       <Routes>
-  //           <Route path="/" element={<Login />} />
-  //       </Routes>
-  //    </BrowserRouter> 
-  //   )
-  // }
+  if(!token) {
+    return (
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Login />} />
+        </Routes>
+     </BrowserRouter> 
+    )
+  }
 
   return (
     <HashRouter>

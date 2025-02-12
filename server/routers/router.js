@@ -1,9 +1,10 @@
 const express = require("express");
-const { createDistributor, getDistributors, deleteForm, login, updateDistributor, getSingleDistributor, uploadfileByAdmin, uploadfileByProvider } = require("../controllers/distributor.controller");
+const { createDistributor, getDistributors, deleteForm, login, updateDistributor, getSingleDistributor, uploadfileByAdmin, uploadfileByProvider, uploadfilesByAdmin, changeVerifiedStatus, forgetpassword, verifyOTP } = require("../controllers/distributor.controller");
 const upload = require("../middlewares/multer");
 const { createBanner, getBanners, getSingleBanner, deleteBanner, updateBannerStatus, updatebanner } = require("../controllers/banner.controller");
 const { createInquiry, getInquiries, deleteInquiry } = require("../controllers/inquiry.controller");
 const { createBlog, getAllBlogs, getSingleBlog, updateBlog, deleteBlog } = require("../controllers/blog.controller");
+const { createReview, getAllReview, getReviewByProviderId } = require("../controllers/review.controller");
 const router = express.Router();
 
 // Middleware to handle file uploads
@@ -23,7 +24,11 @@ router.delete('/delete_form/:id', deleteForm);
 router.post('/login', login)
 router.put('/update_profile/:id',fileUpload,updateDistributor)
 router.put('/update_file_By_admin/:id',upload.single('fileUploadedByAdmin'), uploadfileByAdmin)
+router.post('/update_files_By_admin',upload.single('fileUploadedByAdmin'), uploadfilesByAdmin)
 router.put('/update_file_By_provider/:id',upload.single('fileUploadedByDistributor'), uploadfileByProvider)
+router.put('/update_verify_status/:id', changeVerifiedStatus)
+router.post('/forget_password',forgetpassword)
+router.post('/verify_otp',verifyOTP)
 
 // banner router here 
 router.post('/create_banner',upload.single('image'), createBanner)
@@ -45,5 +50,10 @@ router.get('/get_blogs', getAllBlogs)
 router.get('/get_blog/:id', getSingleBlog)
 router.put('/update_blog/:id',upload.single('image'), updateBlog)
 router.delete('/delete_blog/:id', deleteBlog)
+
+// review router here 
+router.post('/create_review',createReview)
+router.get('/all_review',getAllReview)
+router.get('/review_by_provider/:_id',getReviewByProviderId)
 
 module.exports = router;

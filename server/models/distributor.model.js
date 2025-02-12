@@ -192,7 +192,6 @@ const distributorSchema = new mongoose.Schema({
     },
     Password: {
         type: String,
-        required: true
     },
     isDeactivated: {
         type: Boolean,
@@ -222,6 +221,13 @@ const distributorSchema = new mongoose.Schema({
         public_id: {
             type: String
         }
+    },
+    averageRating: {
+        type: Number
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
     }
 }, { timestamps: true });
 

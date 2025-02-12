@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 const UploadFile = () => {
     const [fileUploadedByDistributor, setFileUploadedByDistributor] = useState(null);
     const [userId, setUserId] = useState(null);
+    const  [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -23,6 +24,7 @@ const UploadFile = () => {
     };
 
     const handleSubmit = async (e) => {
+        setLoading(true)
         e.preventDefault();
         if (!fileUploadedByDistributor || !userId) {
             console.log("No file selected or user not found");
@@ -42,10 +44,14 @@ const UploadFile = () => {
                     },
                 }
             );
+            toast.success('PDF Uploaded Successfully');
             console.log(res.data);
+            setLoading(false)
         } catch (error) {
             console.log("Internal server error", error);
             toast.error(error?.response?.data?.message || 'Something went wrong');
+        }finally{
+            setLoading(false)
         }
     };
 
@@ -71,7 +77,7 @@ const UploadFile = () => {
                     onClick={handleSubmit}
                     className="px-6 py-2 bg-[#DE0000] text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
-                    Upload File
+                    {loading ? 'Uploading...' : 'Upload File'}
                 </button>
             </div>
         </div>

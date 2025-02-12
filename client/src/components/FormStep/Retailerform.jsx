@@ -285,7 +285,7 @@ const Retailerform = ({ formData, setFormData, setStep, isLoading }) => {
                 <div className="col-span-2 md:col-span-1">
                     <label className="block text-sm font-medium text-gray-700">Started Year</label>
                     <input
-                        type="number"
+                        type="date"
                         name="startingYear"
                         value={formData.startingYear}
                         onChange={handleInputChange}
