@@ -185,7 +185,7 @@ const OtherProfiles = () => {
     const handleFetchProvider = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get('https://www.test.blueaceindia.com/api/v1/get_distributor');
+            const { data } = await axios.get('https://www.api.upfda.in/api/v1/get_distributor');
             const allDistributor = data.data;
             const filterData = allDistributor.filter((item) => item.type !== role);
             setAllProvider(filterData);

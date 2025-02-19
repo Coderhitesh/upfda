@@ -38,7 +38,7 @@ const Profile = () => {
         const handleFetchDistributor = async () => {
             setLoading(true);
             try {
-                const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/get_distributor_by_id/${userId}`);
+                const { data } = await axios.get(`https://www.api.upfda.in/api/v1/get_distributor_by_id/${userId}`);
                 setDistributor(data.data);
                 const allData = data.data
                 setRole(allData?.type)

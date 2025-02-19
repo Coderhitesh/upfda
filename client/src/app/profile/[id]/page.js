@@ -51,7 +51,7 @@ const ReviewForm = ({ providerId, onReviewSubmitted }) => {
                 return;
             }
 
-            const response = await axios.post('https://www.test.blueaceindia.com/api/v1/create_review', {
+            const response = await axios.post('https://www.api.upfda.in/api/v1/create_review', {
                 rating,
                 review,
                 providerId,
@@ -149,7 +149,7 @@ export default function ProfileDetail() {
         if (!id) return;
         try {
             setLoading(true);
-            const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/get_distributor_by_id/${id}`);
+            const { data } = await axios.get(`https://www.api.upfda.in/api/v1/get_distributor_by_id/${id}`);
             setProfile(data.data);
         } catch (error) {
             setError("Failed to fetch profile details.");
@@ -162,7 +162,7 @@ export default function ProfileDetail() {
     const fetchReviews = async () => {
         try {
             setLoadingReviews(true);
-            const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/review_by_provider/${id}`);
+            const { data } = await axios.get(`https://www.api.upfda.in/api/v1/review_by_provider/${id}`);
             setReviews(data.data || []);
         } catch (error) {
             console.error("Error fetching reviews:", error);

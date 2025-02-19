@@ -30,7 +30,7 @@ const Contact = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://www.test.blueaceindia.com/api/v1/create_inquiry',formData)
+      const res = await axios.post('https://www.api.upfda.in/api/v1/create_inquiry',formData)
       toast.success(res.data.message || 'Inquiry sent successfully');
     } catch (error) {
       console.log("Internal server error", error);

@@ -16,7 +16,7 @@ const Page = () => {
   // Fetch blog data from API
   const handleFetchBlog = async () => {
     try {
-      const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/get_blog/${id}`);
+      const { data } = await axios.get(`https://www.api.upfda.in/api/v1/get_blog/${id}`);
       setBlogPost(data.data);
     } catch (error) {
       console.log("Internal server error", error);

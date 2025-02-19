@@ -29,7 +29,7 @@ function AddHero() {
 
         setLoading(true);
         try {
-            const res = await axios.post('https://www.test.blueaceindia.com/api/v1/create_banner', payload, {
+            const res = await axios.post('https://www.api.upfda.in/api/v1/create_banner', payload, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             toast.success('Banner added successfully!');

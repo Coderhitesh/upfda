@@ -36,7 +36,7 @@ const UploadFile = () => {
 
         try {
             const res = await axios.put(
-                `https://www.test.blueaceindia.com/api/v1/update_file_By_provider/${userId}`,
+                `https://www.api.upfda.in/api/v1/update_file_By_provider/${userId}`,
                 formData,
                 {
                     headers: {

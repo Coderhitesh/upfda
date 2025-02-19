@@ -17,7 +17,7 @@ const News = () => {
 
     const fetchBlogs = async () => {
         try {
-            const { data } = await axios.get('https://www.test.blueaceindia.com/api/v1/get_blogs');
+            const { data } = await axios.get('https://www.api.upfda.in/api/v1/get_blogs');
             setBlogs(data.data);
         } catch (error) {
             console.error("Error fetching blogs:", error);

@@ -35,7 +35,7 @@ const UpdateFiles = () => {
         const handleFetchDistributor = async () => {
             if (!userId) return;
             try {
-                const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/get_distributor_by_id/${userId}`);
+                const { data } = await axios.get(`https://www.api.upfda.in/api/v1/get_distributor_by_id/${userId}`);
                 const distributorData = data.data;
                 setRole(distributorData?.type)
 
@@ -89,7 +89,7 @@ const UpdateFiles = () => {
         });
 
         try {
-            const response = await axios.put(`https://www.test.blueaceindia.com/api/v1/update_profile/${userId}`, formDataToSend);
+            const response = await axios.put(`https://www.api.upfda.in/api/v1/update_profile/${userId}`, formDataToSend);
 
             // const data = await response.json();
             const data = response.data;

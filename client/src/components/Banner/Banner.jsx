@@ -21,7 +21,7 @@ const Banner = () => {
     useEffect(() => {
         const fetchBanner = async () => {
             try {
-                const response = await axios.get('https://www.test.blueaceindia.com/api/v1/get_banners');
+                const response = await axios.get('https://www.api.upfda.in/api/v1/get_banners');
                 const reverseData = response.data.data.reverse();
                 const activeData = reverseData.filter(item => item.isActive === true);
                 setBanner(activeData);

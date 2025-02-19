@@ -89,7 +89,7 @@ const Retailer = () => {
         // });
 
         try {
-            const response = await axios.post('https://www.test.blueaceindia.com/api/v1/create_distributor', formDataToSend);
+            const response = await axios.post('https://www.api.upfda.in/api/v1/create_distributor', formDataToSend);
 
             // const data = await response.json();
             const data = response.data;

@@ -35,7 +35,7 @@ const Login = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await axios.post('https://www.test.blueaceindia.com/admin-login', formData);
+      const res = await axios.post('https://www.api.upfda.in/admin-login', formData);
       // console.log('Response:', res.data);
 
       const { login } = res.data;

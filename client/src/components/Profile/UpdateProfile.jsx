@@ -68,7 +68,7 @@ const UpdateProfile = () => {
         const handleFetchDistributor = async () => {
             setLoading(true);
             try {
-                const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/get_distributor_by_id/${userId}`);
+                const { data } = await axios.get(`https://www.api.upfda.in/api/v1/get_distributor_by_id/${userId}`);
                 const distributorData = data.data;
                 setRole(distributorData?.type)
 
@@ -220,7 +220,7 @@ const UpdateProfile = () => {
         try {
             setLoading(true);
             const response = await axios.put(
-                `https://www.test.blueaceindia.com/api/v1/update_profile/${userId}`,
+                `https://www.api.upfda.in/api/v1/update_profile/${userId}`,
                 submitData
             );
             toast.success(response.data.message || 'Profile updated successfully');

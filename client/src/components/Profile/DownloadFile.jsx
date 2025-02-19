@@ -25,7 +25,7 @@ const DownloadFile = () => {
 
     const handleFetchProviderData = async () => {
         try {
-            const { data } = await axios.get(`https://www.test.blueaceindia.com/api/v1/get_distributor_by_id/${userId}`);
+            const { data } = await axios.get(`https://www.api.upfda.in/api/v1/get_distributor_by_id/${userId}`);
             
             if (data?.data?.fileUploadedByAdmin?.url) {
                 setFileUrl(data.data.fileUploadedByAdmin.url);

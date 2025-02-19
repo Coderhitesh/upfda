@@ -28,7 +28,7 @@ const AllInquiry = () => {
     const fetchPropertyInquiries = async () => {
         setLoading(true);
         try {
-            const { data } = await axios.get('https://www.test.blueaceindia.com/api/v1/get_inquiries');
+            const { data } = await axios.get('https://www.api.upfda.in/api/v1/get_inquiries');
             const allData = data.data;
             setInquiries(allData.reverse()); // Assuming data is returned in the `data` field
         } catch (error) {
@@ -47,7 +47,7 @@ const AllInquiry = () => {
     const handleDeleteInquiry = async (id) => {
         try {
             setLoading(true);
-            await axios.delete(`https://www.test.blueaceindia.com/api/v1/delete_inquiry/${id}`);
+            await axios.delete(`https://www.api.upfda.in/api/v1/delete_inquiry/${id}`);
             setInquiries((prev) => prev.filter((inquiry) => inquiry._id !== id));
             toast.success('Inquiry deleted successfully');
         } catch (error) {

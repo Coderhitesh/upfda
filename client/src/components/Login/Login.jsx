@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://www.test.blueaceindia.com/api/v1/login', formData);
+      const res = await axios.post('https://www.api.upfda.in/api/v1/login', formData);
       const { token, user } = res.data;
 
       if (typeof window !== "undefined") {

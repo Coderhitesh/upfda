@@ -30,7 +30,7 @@ const ForgetPassword = () => {
     setError('')
     
     try {
-      const response = await axios.post('https://www.test.blueaceindia.com/api/v1/forget_password', {
+      const response = await axios.post('https://www.api.upfda.in/api/v1/forget_password', {
         phoneNo: formData.phoneNo,
         newPassword: formData.newPassword
       })
@@ -52,7 +52,7 @@ const ForgetPassword = () => {
     setError('')
     
     try {
-      const response = await axios.post('https://www.test.blueaceindia.com/api/v1/verify_otp', {
+      const response = await axios.post('https://www.api.upfda.in/api/v1/verify_otp', {
         phoneNo: formData.phoneNo,
         otp: formData.otp
       })
