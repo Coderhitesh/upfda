@@ -54,6 +54,12 @@ const _nav = [
     to: '/inquiry/all_inquiry',
     icon: <CIcon icon={cilText} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: 'News Room',
+    to: '/news-room/all-news-room',
+    icon: <CIcon icon={cilText} customClassName="nav-icon" />,
+  },
 ]
 
 export default _nav

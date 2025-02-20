@@ -1,7 +1,22 @@
 'use client'
+import axios from 'axios';
 import { Newspaper, ExternalLink, Youtube } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const NewsRoom = () => {
+  const [allNews, setAllNews] = useState([]);
+  const handleFetch = async () => {
+    try {
+      const { data } = await axios.get('https://www.api.upfda.in/api/v1/get_news');
+      const reversedData = data.data.reverse();
+      setAllNews(reversedData);
+    } catch (error) {
+      console.log("Internal server error", error);
+    }
+  }
+  useEffect(() => {
+    handleFetch();
+  })
   return (
     <div className="min-h-screen bg-[#F2D8A2] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -26,35 +41,25 @@ const NewsRoom = () => {
 
           {/* News Links */}
           <div className="grid gap-6 md:grid-cols-2">
-            <a 
-              href="https://www.business-standard.com/markets/capital-market-news/honasa-consumer-slumps-after-aicpdf-flags-co-s-unsold-inventory-worth-rs-300-crore-124112100582_1.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300 flex items-start gap-4"
-            >
-              <Newspaper className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Honasa Consumer slumps after AICPDF flags Co's unsold inventory worth Rs 300 crore
-                </h3>
-                <ExternalLink className="w-5 h-5 text-gray-400" />
-              </div>
-            </a>
-
-            <a 
-              href="https://timesofindia.indiatimes.com/technology/tech-news/indias-biggest-retail-distributors-association-aicpdf-sends-letter-to-cci-against-blinkit-zepto-and-swiggy/articleshow/114438526.cms"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300 flex items-start gap-4"
-            >
-              <Newspaper className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  India's biggest retail distributors association AICPDF sends letter to CCI against Blinkit, Zepto & Swiggy
-                </h3>
-                <ExternalLink className="w-5 h-5 text-gray-400" />
-              </div>
-            </a>
+            {
+              allNews && allNews.map((item, index) => (
+                <a
+                key={index}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300 flex items-start gap-4"
+                >
+                  <Newspaper className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {item.title}
+                    </h3>
+                    <ExternalLink className="w-5 h-5 text-gray-400" />
+                  </div>
+                </a>
+              ))
+            }
           </div>
 
           {/* YouTube Video */}

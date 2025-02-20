@@ -19,6 +19,9 @@ import AllInquiry from './views/Inquiry/AllInquiry'
 import Distributor from './views/Form/Distributor'
 import Manufacturer from './views/Form/Manufacturer'
 import Retailer from './views/Form/Retailer'
+import AllNewsRoom from './views/NewsRoom/AllNewsRoom'
+import CreateNewsRoom from './views/NewsRoom/CreateNewsRoom'
+import EditNewsRoom from './views/NewsRoom/EditNewsRoom'
 
 const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'))
 const Colors = React.lazy(() => import('./views/theme/colors/Colors'))
@@ -182,6 +185,12 @@ const routes = [
   // form routes here 
   { path: '/association', name: 'Association', element: Cards, exact: true },
   { path: '/association/all_association', name: 'All Association', element: Manufacturer },
+
+  // news room routes here 
+  { path: '/news-room', name: 'News room', element: Cards, exact: true },
+  { path: '/news-room/all-news-room', name: 'All News Room', element: AllNewsRoom },
+  { path: '/news-room/add-news-room', name: 'Add News Room', element: CreateNewsRoom },
+  { path: '/news-room/edit-news-room/:id', name: 'Edit News Room', element: EditNewsRoom },
 
 ]
 
