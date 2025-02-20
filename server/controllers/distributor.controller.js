@@ -64,7 +64,7 @@ exports.createDistributor = async (req, res) => {
         // if (!panNo) emptyFields.push("panNo");
         // if (!FSSAINo) emptyFields.push("FSSAINo");
         // if (!ownerName) emptyFields.push("ownerName");
-        // if (!phoneNo) emptyFields.push("phoneNo");
+        if (!phoneNo) emptyFields.push("phoneNo");
         // if (!alternatePhoneNo) emptyFields.push("alternatePhoneNo");
         // if (!email) emptyFields.push("email");
         // if (!associatedCompany) emptyFields.push("associatedCompany");
@@ -89,6 +89,14 @@ exports.createDistributor = async (req, res) => {
                 success: false,
                 message: `Please fill in the following fields: ${emptyFields.join(", ")}`,
             })
+        }
+
+        const existingDistributor = await Distributor.findOne({ phoneNo: phoneNo.trim() });
+        if (existingDistributor) {
+            return res.status(400).json({
+                success: false,
+                message: "A distributor with this phone number already exists",
+            });
         }
 
         if (Password < 8) {
@@ -388,7 +396,7 @@ exports.forgetpassword = async (req, res) => {
                 `If you did not request a password reset, please ignore this email.\n\n` +
                 `Thank you,\nTeam Uttar Pradesh Federation of Distributor Associations`,
         };
-        
+
 
         // Send email
         await SendEmail(emailContent);
