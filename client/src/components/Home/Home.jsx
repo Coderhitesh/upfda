@@ -154,13 +154,13 @@ const Home = () => {
             <Banner />
             {/* hero section end  */}
 
-            <section className="w-full bg-[#ffdda6] py-20 px-4 sm:px-6 lg:px-8">
+            <section className="w-full bg-[#ffdda6] py-10 md:py-20 px-2 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-black">
-                    <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-center">
+                    <h1 className="text-4xl sm:text-5xl font-bold mb-0 md:mb-6 text-center">
                         Welcome to UPFDA
                     </h1>
 
-                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 mb-10">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-8 mb-10">
                         <p className="text-lg leading-relaxed mb-6">
                             Uttar Pradesh Federation of Distributor Associations (UPFDA) is the official state-level federation representing the interests of FMCG distributors across Uttar Pradesh. As an umbrella organization affiliated with the All India Consumer Products Distributors Federation (AICPDF), we provide a unified voice for distributors and work collaboratively with district, city, and town-level associations to foster equitable and sustainable trade practices.
                         </p>

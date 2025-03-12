@@ -49,12 +49,36 @@ body {
 }
 
 .hero_banner_height {
-  height: 550px;
+  height: 665px;
+}
+
+@media (max-width: 2060px) {
+  .hero_banner_height {
+    height: 536px;
+  }
+}
+
+@media (max-width: 1663px) {
+  .hero_banner_height {
+    height: 435px;
+  }
 }
 
 @media (max-width: 1353px) {
   .hero_banner_height {
     height: 353px;
+  }
+}
+
+@media (max-width:1163px) {
+  .hero_banner_height {
+    height: 301px;
+  }
+}
+
+@media (max-width:953px) {
+  .hero_banner_height {
+    height: 248px;
   }
 }
 
@@ -64,17 +88,35 @@ body {
   }
 }
 
+@media (max-width:706px) {
+  .hero_banner_height {
+    height: 181px;
+  }
+}
+
 @media (max-width:540px) {
   .hero_banner_height {
     height: 145px;
   }
 }
 
-@media (max-width:360px) {
+@media (max-width:473px) {
+  .hero_banner_height {
+    height: 124px;
+  }
+}
+
+@media (max-width:400px) {
+  .hero_banner_height {
+    height: 100px;
+  }
+}
+
+/* @media (max-width:360px) {
   .hero_banner_height {
     height: 120px;
   }
-}
+} */
 
 #fileInput[type="file"] {
   display: none;
