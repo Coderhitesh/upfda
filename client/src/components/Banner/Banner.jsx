@@ -38,7 +38,7 @@ const Banner = () => {
             <div className="slider-container">
                 <Slider {...settings}>
                     {
-                        banner && banner.slice(0, 1).map((item, index) => (
+                        banner && banner.map((item, index) => (
                             <div key={index} className="relative hero_banner_height w-full">
                                 <img src={item?.image?.url} className='w-full h-full object-cover' alt="" />
                             </div>

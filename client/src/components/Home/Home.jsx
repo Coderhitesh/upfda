@@ -532,10 +532,6 @@ const Home = () => {
                 </div>
             </section>
 
-            <section>
-
-            </section>
-
         </main>
     );
 };
